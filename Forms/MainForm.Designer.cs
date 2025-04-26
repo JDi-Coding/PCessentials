@@ -1,4 +1,4 @@
-﻿namespace PCessentials
+﻿namespace PCessentials.Forms
 {
     partial class MainForm
     {
@@ -29,187 +29,150 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panelSidebar = new System.Windows.Forms.Panel();
-            this.btn_FormFinanceHelper = new System.Windows.Forms.Button();
-            this.btn_FormWebDownloader = new System.Windows.Forms.Button();
-            this.btnForm3 = new System.Windows.Forms.Button();
-            this.btnForm2 = new System.Windows.Forms.Button();
-            this.btnForm1 = new System.Windows.Forms.Button();
-            this.btn_FormPrint = new System.Windows.Forms.Button();
-            this.pnl_MF_sidebarBottom = new System.Windows.Forms.Panel();
-            this.btn_MF_settings = new System.Windows.Forms.Button();
-            this.panelContainer = new System.Windows.Forms.Panel();
+            this.pnl_MF_Sidebar = new System.Windows.Forms.Panel();
+            this.listBoxForms = new System.Windows.Forms.ListBox();
+            this.pnl_MF_SidebarBottom = new System.Windows.Forms.Panel();
+            this.btn_MF_Help = new System.Windows.Forms.Button();
+            this.btn_MF_Settings = new System.Windows.Forms.Button();
+            this.pnl_MF_Content = new System.Windows.Forms.Panel();
             this.pnl_MF_Top = new System.Windows.Forms.Panel();
-            this.tT_btn_MF_settings = new System.Windows.Forms.ToolTip(this.components);
-            this.btn_FormHelp = new System.Windows.Forms.Button();
-            this.panelSidebar.SuspendLayout();
-            this.pnl_MF_sidebarBottom.SuspendLayout();
+            this.pnl_MF_SidebarTopLogo = new System.Windows.Forms.Panel();
+            this.tt_MF = new System.Windows.Forms.ToolTip(this.components);
+            this.pnl_MF_FormList = new System.Windows.Forms.Panel();
+            this.pnl_MF_Sidebar.SuspendLayout();
+            this.pnl_MF_SidebarBottom.SuspendLayout();
+            this.pnl_MF_FormList.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelSidebar
+            // pnl_MF_Sidebar
             // 
-            this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelSidebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSidebar.Controls.Add(this.btn_FormFinanceHelper);
-            this.panelSidebar.Controls.Add(this.btn_FormWebDownloader);
-            this.panelSidebar.Controls.Add(this.btnForm3);
-            this.panelSidebar.Controls.Add(this.btnForm2);
-            this.panelSidebar.Controls.Add(this.btnForm1);
-            this.panelSidebar.Controls.Add(this.btn_FormPrint);
-            this.panelSidebar.Controls.Add(this.pnl_MF_sidebarBottom);
-            this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
-            this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(270, 761);
-            this.panelSidebar.TabIndex = 0;
+            this.pnl_MF_Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnl_MF_Sidebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_MF_Sidebar.Controls.Add(this.pnl_MF_FormList);
+            this.pnl_MF_Sidebar.Controls.Add(this.pnl_MF_SidebarBottom);
+            this.pnl_MF_Sidebar.Controls.Add(this.pnl_MF_SidebarTopLogo);
+            this.pnl_MF_Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnl_MF_Sidebar.Location = new System.Drawing.Point(0, 0);
+            this.pnl_MF_Sidebar.Margin = new System.Windows.Forms.Padding(0);
+            this.pnl_MF_Sidebar.Name = "pnl_MF_Sidebar";
+            this.pnl_MF_Sidebar.Size = new System.Drawing.Size(345, 861);
+            this.pnl_MF_Sidebar.TabIndex = 0;
             // 
-            // btn_FormFinanceHelper
+            // listBoxForms
             // 
-            this.btn_FormFinanceHelper.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_FormFinanceHelper.Location = new System.Drawing.Point(0, 250);
-            this.btn_FormFinanceHelper.Name = "btn_FormFinanceHelper";
-            this.btn_FormFinanceHelper.Size = new System.Drawing.Size(268, 50);
-            this.btn_FormFinanceHelper.TabIndex = 5;
-            this.btn_FormFinanceHelper.Text = "FinanaceHelper";
-            this.btn_FormFinanceHelper.UseVisualStyleBackColor = true;
+            this.listBoxForms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBoxForms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxForms.FormattingEnabled = true;
+            this.listBoxForms.Location = new System.Drawing.Point(10, 10);
+            this.listBoxForms.Margin = new System.Windows.Forms.Padding(0);
+            this.listBoxForms.Name = "listBoxForms";
+            this.listBoxForms.Size = new System.Drawing.Size(305, 662);
+            this.listBoxForms.TabIndex = 4;
             // 
-            // btn_FormWebDownloader
+            // pnl_MF_SidebarBottom
             // 
-            this.btn_FormWebDownloader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_FormWebDownloader.Location = new System.Drawing.Point(0, 200);
-            this.btn_FormWebDownloader.Name = "btn_FormWebDownloader";
-            this.btn_FormWebDownloader.Size = new System.Drawing.Size(268, 50);
-            this.btn_FormWebDownloader.TabIndex = 4;
-            this.btn_FormWebDownloader.Text = "WebDownloader";
-            this.btn_FormWebDownloader.UseVisualStyleBackColor = true;
-            this.btn_FormWebDownloader.Click += new System.EventHandler(this.btn_FormWebDownloader_Click);
+            this.pnl_MF_SidebarBottom.Controls.Add(this.btn_MF_Help);
+            this.pnl_MF_SidebarBottom.Controls.Add(this.btn_MF_Settings);
+            this.pnl_MF_SidebarBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnl_MF_SidebarBottom.Location = new System.Drawing.Point(0, 755);
+            this.pnl_MF_SidebarBottom.Name = "pnl_MF_SidebarBottom";
+            this.pnl_MF_SidebarBottom.Size = new System.Drawing.Size(343, 104);
+            this.pnl_MF_SidebarBottom.TabIndex = 0;
             // 
-            // btnForm3
+            // btn_MF_Help
             // 
-            this.btnForm3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnForm3.Location = new System.Drawing.Point(0, 150);
-            this.btnForm3.Name = "btnForm3";
-            this.btnForm3.Size = new System.Drawing.Size(268, 50);
-            this.btnForm3.TabIndex = 2;
-            this.btnForm3.Text = "Password Manager";
-            this.btnForm3.UseVisualStyleBackColor = true;
-            this.btnForm3.Click += new System.EventHandler(this.btnForm3_Click);
+            this.btn_MF_Help.Location = new System.Drawing.Point(130, 66);
+            this.btn_MF_Help.Name = "btn_MF_Help";
+            this.btn_MF_Help.Size = new System.Drawing.Size(75, 23);
+            this.btn_MF_Help.TabIndex = 1;
+            this.btn_MF_Help.Text = "Help";
+            this.btn_MF_Help.UseVisualStyleBackColor = true;
             // 
-            // btnForm2
+            // btn_MF_Settings
             // 
-            this.btnForm2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnForm2.Location = new System.Drawing.Point(0, 100);
-            this.btnForm2.Name = "btnForm2";
-            this.btnForm2.Size = new System.Drawing.Size(268, 50);
-            this.btnForm2.TabIndex = 1;
-            this.btnForm2.Text = "BotControl";
-            this.btnForm2.UseVisualStyleBackColor = true;
-            this.btnForm2.Click += new System.EventHandler(this.btnForm2_Click);
+            this.btn_MF_Settings.Location = new System.Drawing.Point(11, 66);
+            this.btn_MF_Settings.Name = "btn_MF_Settings";
+            this.btn_MF_Settings.Size = new System.Drawing.Size(90, 23);
+            this.btn_MF_Settings.TabIndex = 0;
+            this.btn_MF_Settings.Text = "Einstellungen";
+            this.btn_MF_Settings.UseVisualStyleBackColor = true;
             // 
-            // btnForm1
+            // pnl_MF_Content
             // 
-            this.btnForm1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnForm1.Location = new System.Drawing.Point(0, 50);
-            this.btnForm1.Name = "btnForm1";
-            this.btnForm1.Size = new System.Drawing.Size(268, 50);
-            this.btnForm1.TabIndex = 0;
-            this.btnForm1.Text = "DownloadCleaner";
-            this.btnForm1.UseVisualStyleBackColor = true;
-            this.btnForm1.Click += new System.EventHandler(this.btnForm1_Click);
-            // 
-            // btn_FormPrint
-            // 
-            this.btn_FormPrint.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_FormPrint.Location = new System.Drawing.Point(0, 0);
-            this.btn_FormPrint.Name = "btn_FormPrint";
-            this.btn_FormPrint.Size = new System.Drawing.Size(268, 50);
-            this.btn_FormPrint.TabIndex = 3;
-            this.btn_FormPrint.Text = "Drucken";
-            this.btn_FormPrint.UseVisualStyleBackColor = true;
-            this.btn_FormPrint.Click += new System.EventHandler(this.btn_FormPrint_Click);
-            // 
-            // pnl_MF_sidebarBottom
-            // 
-            this.pnl_MF_sidebarBottom.Controls.Add(this.btn_FormHelp);
-            this.pnl_MF_sidebarBottom.Controls.Add(this.btn_MF_settings);
-            this.pnl_MF_sidebarBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_MF_sidebarBottom.Location = new System.Drawing.Point(0, 659);
-            this.pnl_MF_sidebarBottom.Name = "pnl_MF_sidebarBottom";
-            this.pnl_MF_sidebarBottom.Size = new System.Drawing.Size(268, 100);
-            this.pnl_MF_sidebarBottom.TabIndex = 0;
-            // 
-            // btn_MF_settings
-            // 
-            this.btn_MF_settings.Location = new System.Drawing.Point(11, 66);
-            this.btn_MF_settings.Name = "btn_MF_settings";
-            this.btn_MF_settings.Size = new System.Drawing.Size(90, 23);
-            this.btn_MF_settings.TabIndex = 0;
-            this.btn_MF_settings.Text = "Einstellungen";
-            this.btn_MF_settings.UseVisualStyleBackColor = true;
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.BackColor = System.Drawing.Color.DimGray;
-            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(270, 0);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1534, 761);
-            this.panelContainer.TabIndex = 1;
+            this.pnl_MF_Content.BackColor = System.Drawing.Color.DimGray;
+            this.pnl_MF_Content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_MF_Content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_MF_Content.Location = new System.Drawing.Point(345, 74);
+            this.pnl_MF_Content.Name = "pnl_MF_Content";
+            this.pnl_MF_Content.Size = new System.Drawing.Size(1459, 787);
+            this.pnl_MF_Content.TabIndex = 1;
             // 
             // pnl_MF_Top
             // 
             this.pnl_MF_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnl_MF_Top.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnl_MF_Top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_MF_Top.Location = new System.Drawing.Point(270, 0);
+            this.pnl_MF_Top.Location = new System.Drawing.Point(345, 0);
             this.pnl_MF_Top.Name = "pnl_MF_Top";
-            this.pnl_MF_Top.Size = new System.Drawing.Size(1534, 29);
+            this.pnl_MF_Top.Size = new System.Drawing.Size(1459, 74);
             this.pnl_MF_Top.TabIndex = 2;
             // 
-            // tT_btn_MF_settings
+            // pnl_MF_SidebarTopLogo
             // 
-            this.tT_btn_MF_settings.ToolTipTitle = "HEllo";
+            this.pnl_MF_SidebarTopLogo.BackgroundImage = global::PCessentials.Properties.Resources.NT_3;
+            this.pnl_MF_SidebarTopLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnl_MF_SidebarTopLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_MF_SidebarTopLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnl_MF_SidebarTopLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.pnl_MF_SidebarTopLogo.Name = "pnl_MF_SidebarTopLogo";
+            this.pnl_MF_SidebarTopLogo.Size = new System.Drawing.Size(343, 73);
+            this.pnl_MF_SidebarTopLogo.TabIndex = 1;
             // 
-            // btn_FormHelp
+            // tt_MF
             // 
-            this.btn_FormHelp.Location = new System.Drawing.Point(130, 66);
-            this.btn_FormHelp.Name = "btn_FormHelp";
-            this.btn_FormHelp.Size = new System.Drawing.Size(75, 23);
-            this.btn_FormHelp.TabIndex = 1;
-            this.btn_FormHelp.Text = "Help";
-            this.btn_FormHelp.UseVisualStyleBackColor = true;
+            this.tt_MF.ToolTipTitle = "-";
+            // 
+            // pnl_MF_FormList
+            // 
+            this.pnl_MF_FormList.Controls.Add(this.listBoxForms);
+            this.pnl_MF_FormList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnl_MF_FormList.Location = new System.Drawing.Point(0, 73);
+            this.pnl_MF_FormList.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.pnl_MF_FormList.Name = "pnl_MF_FormList";
+            this.pnl_MF_FormList.Padding = new System.Windows.Forms.Padding(10);
+            this.pnl_MF_FormList.Size = new System.Drawing.Size(325, 682);
+            this.pnl_MF_FormList.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1804, 761);
+            this.ClientSize = new System.Drawing.Size(1804, 861);
+            this.Controls.Add(this.pnl_MF_Content);
             this.Controls.Add(this.pnl_MF_Top);
-            this.Controls.Add(this.panelContainer);
-            this.Controls.Add(this.panelSidebar);
+            this.Controls.Add(this.pnl_MF_Sidebar);
+            this.MinimumSize = new System.Drawing.Size(1200, 800);
             this.Name = "MainForm";
             this.Text = "PCessentials";
-            this.panelSidebar.ResumeLayout(false);
-            this.pnl_MF_sidebarBottom.ResumeLayout(false);
+            this.pnl_MF_Sidebar.ResumeLayout(false);
+            this.pnl_MF_SidebarBottom.ResumeLayout(false);
+            this.pnl_MF_FormList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelSidebar;
-        private System.Windows.Forms.Button btnForm1;
-        private System.Windows.Forms.Button btnForm2;
-        private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.Button btnForm3;
-        private System.Windows.Forms.Button btn_FormPrint;
-        private System.Windows.Forms.Button btn_FormWebDownloader;
-        private System.Windows.Forms.Panel pnl_MF_sidebarBottom;
-        private System.Windows.Forms.Button btn_MF_settings;
+        private System.Windows.Forms.Panel pnl_MF_Sidebar;
+        private System.Windows.Forms.Panel pnl_MF_Content;
+        private System.Windows.Forms.Panel pnl_MF_SidebarBottom;
+        private System.Windows.Forms.Button btn_MF_Settings;
         private System.Windows.Forms.Panel pnl_MF_Top;
-        private System.Windows.Forms.ToolTip tT_btn_MF_settings;
-        private System.Windows.Forms.Button btn_FormFinanceHelper;
-        private System.Windows.Forms.Button btn_FormHelp;
+        private System.Windows.Forms.ToolTip tt_MF;
+        private System.Windows.Forms.Button btn_MF_Help;
+        private System.Windows.Forms.Panel pnl_MF_SidebarTopLogo;
+        private System.Windows.Forms.ListBox listBoxForms;
+        private System.Windows.Forms.Panel pnl_MF_FormList;
     }
 }

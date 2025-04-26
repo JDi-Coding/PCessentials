@@ -1,4 +1,4 @@
-﻿namespace PCessentials
+﻿namespace PCessentials.Forms
 {
     partial class WebDownloader
     {

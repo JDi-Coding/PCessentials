@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PCessentials
+namespace PCessentials.Forms
 {
     public partial class WebDownloader : Form
     {
@@ -239,8 +239,6 @@ namespace PCessentials
             UpdateJobList();
         }
 
-
-
         #region Event Handlers
         private void WebDownloader_Load(object sender, EventArgs e)
         {
@@ -308,8 +306,7 @@ namespace PCessentials
         {
             Debug.WriteLine("Clearing Download Jobliste");
         }
+
         #endregion
-
-
     }
 }

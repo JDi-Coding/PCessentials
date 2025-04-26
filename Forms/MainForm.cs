@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PCessentials.assets;
+using PCessentials.assets.MainForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,71 +10,87 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PCessentials
+namespace PCessentials.Forms
 {
     public partial class MainForm : Form
     {
+        private readonly FormService _formService;
         private Color defaultButtonColor = SystemColors.Control;
         private Color activeButtonColor = Color.LightBlue;
         private Button currentButton;
+        private string currentFormKey;
 
         public MainForm()
         {
             InitializeComponent();
+
+            // Logik-Klasse instanziieren
+            _formService = new FormService();
+
+            // ListBox mit allen verfügbaren Form-Namen füllen
+            listBoxForms.DataSource = _formService.GetFormNames().ToList();
+            listBoxForms.SelectedIndexChanged += ListBoxForms_SelectedIndexChanged;
+
+            // Modernes Styling anwenden
+            UIHelper.StyleModernListBox(listBoxForms);
         }
 
-        private void OpenChildForm(Form childForm, Button senderButton)
+        /// <summary>
+        /// Schließt das derzeit aktive Child-Form.
+        /// </summary>
+        private void CloseActiveForm()
         {
-            if (currentButton != null)
-                currentButton.BackColor = defaultButtonColor;
-
-            currentButton = senderButton;
-            currentButton.BackColor = activeButtonColor;
-
-            foreach (Control ctrl in panelContainer.Controls)
+            foreach (Control ctrl in pnl_MF_Content.Controls)
                 if (ctrl is Form f)
                     f.Close();
+            pnl_MF_Content.Controls.Clear();
+            pnl_MF_Content.Tag = null;
+        }
+
+        /// <summary>
+        /// Öffnet das übergebene Child-Form in unserem Panel.
+        /// Button-Färbung nur, wenn ein Button übergeben wurde.
+        /// </summary>
+        private void OpenChildForm(Form childForm, Button senderButton)
+        {
+            if (senderButton != null)
+            {
+                if (currentButton != null)
+                    currentButton.BackColor = defaultButtonColor;
+
+                currentButton = senderButton;
+                currentButton.BackColor = activeButtonColor;
+            }
 
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panelContainer.Controls.Add(childForm);
-            panelContainer.Tag = childForm;
+            pnl_MF_Content.Controls.Add(childForm);
+            pnl_MF_Content.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
 
-        private void btnForm1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Wechselt das Form anhand der Auswahl in der ListBox.
+        /// Bei Auswahl des gleichen Elements wird nur geschlossen.
+        /// </summary>
+        private void ListBoxForms_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var form1 = new PCessentials.DownloadCleaner();
-            OpenChildForm(form1, sender as Button);
-        }
+            if (!(listBoxForms.SelectedItem is string formKey))
+                return;
 
-        private void btnForm2_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("This feature is not available yet. \n\r THIS STILL NEED FIXING BUG #1");
-            var form2 = new PCessentials.Controlpanel();
-            OpenChildForm(form2, sender as Button);
-        }
+            if (string.Equals(currentFormKey, formKey, StringComparison.Ordinal))
+            {
+                CloseActiveForm();
+                currentFormKey = null;
+                return;
+            }
 
-        private void btnForm3_Click(object sender, EventArgs e)
-        {
-            var form3 = new PCessentials.PSWManager();
-            OpenChildForm(form3, sender as Button);
-        }
-
-        private void btn_FormPrint_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("This feature is not fully Completed yet. \n\r #2");
-            var form4 = new PCessentials.PrintManager();
-            OpenChildForm(form4, sender as Button);
-        }
-
-        private void btn_FormWebDownloader_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("This feature is not fully Completed yet. \n\r #3");
-            var form4 = new PCessentials.WebDownloader();
-            OpenChildForm(form4, sender as Button);
+            CloseActiveForm();
+            var form = _formService.CreateForm(formKey);
+            OpenChildForm(form, null);
+            currentFormKey = formKey;
         }
     }
 }

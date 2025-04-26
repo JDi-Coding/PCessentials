@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using PCessentials;
 
 
-namespace PCessentials
+namespace PCessentials.Forms
 {
     public partial class PSWManager : Form
     {

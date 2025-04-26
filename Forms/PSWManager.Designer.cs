@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace PCessentials
+namespace PCessentials.Forms
 {
     partial class PSWManager
     {

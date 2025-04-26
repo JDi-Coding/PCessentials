@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-namespace PCessentials
+namespace PCessentials.Forms
 {
     public partial class DownloadCleaner : Form
     {

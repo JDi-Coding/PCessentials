@@ -128,10 +128,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="assets\config.cs" />
     <Compile Include="assets\DownloadCleaner\Cleaner.cs" />
     <Compile Include="assets\DownloadCleaner\Config.cs" />
     <Compile Include="assets\DownloadCleaner\Folders.cs" />
+    <Compile Include="assets\MainForm\FormService.cs" />
     <Compile Include="assets\PrintManager\PManager.cs" />
+    <Compile Include="assets\UIHelper.cs" />
     <Compile Include="assets\WebDownloader\WDownloader.cs" />
     <Compile Include="Forms\DownloadCleaner.cs">
       <SubType>Form</SubType>
@@ -195,6 +198,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\PSWManager.resx">
       <DependentUpon>PSWManager.cs</DependentUpon>
@@ -218,6 +222,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\_Texture\DWC_Logo_1.ico" />
+    <Content Include="assets\_Texture\NT_1.png" />
+    <Content Include="assets\_Texture\NT_2.png" />
+    <Content Include="assets\_Texture\NT_3.png" />
     <Content Include="Diagramms\WebDownloader\WebDownloaderClassDiag.drawio.png" />
     <Content Include="Tools\youtube-dl.exe" />
     <Content Include="Tools\yt-dlp.exe">

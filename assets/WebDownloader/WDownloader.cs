@@ -344,7 +344,6 @@ namespace PCessentials.assets.WebDownloader
             StatusChanged?.Invoke(job, $"Saved: {filePath}");
         }
 
-
         /// <summary>
         /// Downloads Instagram video/audio using yt-dlp.
         /// </summary>
