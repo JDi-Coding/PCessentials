@@ -33,15 +33,12 @@
             this.pnl_MF_FormList = new System.Windows.Forms.Panel();
             this.listBoxForms = new System.Windows.Forms.ListBox();
             this.pnl_MF_SidebarBottom = new System.Windows.Forms.Panel();
-            this.btn_MF_Help = new System.Windows.Forms.Button();
-            this.btn_MF_Settings = new System.Windows.Forms.Button();
             this.pnl_MF_Content = new System.Windows.Forms.Panel();
             this.pnl_MF_Top = new System.Windows.Forms.Panel();
             this.tt_MF = new System.Windows.Forms.ToolTip(this.components);
             this.pnl_MF_SidebarTopLogo = new System.Windows.Forms.Panel();
             this.pnl_MF_Sidebar.SuspendLayout();
             this.pnl_MF_FormList.SuspendLayout();
-            this.pnl_MF_SidebarBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_MF_Sidebar
@@ -82,31 +79,11 @@
             // 
             // pnl_MF_SidebarBottom
             // 
-            this.pnl_MF_SidebarBottom.Controls.Add(this.btn_MF_Help);
-            this.pnl_MF_SidebarBottom.Controls.Add(this.btn_MF_Settings);
             this.pnl_MF_SidebarBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnl_MF_SidebarBottom.Location = new System.Drawing.Point(0, 755);
             this.pnl_MF_SidebarBottom.Name = "pnl_MF_SidebarBottom";
             this.pnl_MF_SidebarBottom.Size = new System.Drawing.Size(343, 104);
             this.pnl_MF_SidebarBottom.TabIndex = 0;
-            // 
-            // btn_MF_Help
-            // 
-            this.btn_MF_Help.Location = new System.Drawing.Point(130, 66);
-            this.btn_MF_Help.Name = "btn_MF_Help";
-            this.btn_MF_Help.Size = new System.Drawing.Size(75, 23);
-            this.btn_MF_Help.TabIndex = 1;
-            this.btn_MF_Help.Text = "Help";
-            this.btn_MF_Help.UseVisualStyleBackColor = true;
-            // 
-            // btn_MF_Settings
-            // 
-            this.btn_MF_Settings.Location = new System.Drawing.Point(11, 66);
-            this.btn_MF_Settings.Name = "btn_MF_Settings";
-            this.btn_MF_Settings.Size = new System.Drawing.Size(90, 23);
-            this.btn_MF_Settings.TabIndex = 0;
-            this.btn_MF_Settings.Text = "Einstellungen";
-            this.btn_MF_Settings.UseVisualStyleBackColor = true;
             // 
             // pnl_MF_Content
             // 
@@ -114,6 +91,7 @@
             this.pnl_MF_Content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_MF_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_MF_Content.Location = new System.Drawing.Point(345, 74);
+            this.pnl_MF_Content.Margin = new System.Windows.Forms.Padding(0);
             this.pnl_MF_Content.Name = "pnl_MF_Content";
             this.pnl_MF_Content.Size = new System.Drawing.Size(1459, 787);
             this.pnl_MF_Content.TabIndex = 1;
@@ -157,7 +135,6 @@
             this.Text = "PCessentials";
             this.pnl_MF_Sidebar.ResumeLayout(false);
             this.pnl_MF_FormList.ResumeLayout(false);
-            this.pnl_MF_SidebarBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -167,10 +144,8 @@
         private System.Windows.Forms.Panel pnl_MF_Sidebar;
         private System.Windows.Forms.Panel pnl_MF_Content;
         private System.Windows.Forms.Panel pnl_MF_SidebarBottom;
-        private System.Windows.Forms.Button btn_MF_Settings;
         private System.Windows.Forms.Panel pnl_MF_Top;
         private System.Windows.Forms.ToolTip tt_MF;
-        private System.Windows.Forms.Button btn_MF_Help;
         private System.Windows.Forms.Panel pnl_MF_SidebarTopLogo;
         private System.Windows.Forms.ListBox listBoxForms;
         private System.Windows.Forms.Panel pnl_MF_FormList;

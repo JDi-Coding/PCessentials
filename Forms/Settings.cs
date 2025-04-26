@@ -16,5 +16,10 @@ namespace PCessentials.Forms
         {
             InitializeComponent();
         }
+        //TODO: Add settings for the application
+        // -Language
+        // -Theme
+        // -FolderPaths
+
     }
 }

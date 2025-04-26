@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AngleSharp.Text;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -15,7 +16,7 @@ namespace PCessentials.assets.MainForm
         private readonly Dictionary<string, Func<Form>> formFactories;
         private readonly HashSet<string> excludeNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
-            "MainForm", "Settings", "Help"
+            "MainForm",
         };
 
 

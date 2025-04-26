@@ -16,5 +16,11 @@ namespace PCessentials.Forms
         {
             InitializeComponent();
         }
+        //TODO: Implement the Finance Helper functionality
+
+        private void FinanceHelper_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("This is not Implemented Yet", "Finance Helper", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

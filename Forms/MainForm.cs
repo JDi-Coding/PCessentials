@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +57,10 @@ namespace PCessentials.Forms
             if (senderButton != null)
             {
                 if (currentButton != null)
-                    currentButton.BackColor = defaultButtonColor;
+                {
+                 currentButton.BackColor = defaultButtonColor;
+                }
+   
 
                 currentButton = senderButton;
                 currentButton.BackColor = activeButtonColor;
@@ -78,7 +82,10 @@ namespace PCessentials.Forms
         private void ListBoxForms_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!(listBoxForms.SelectedItem is string formKey))
+            {
                 return;
+            }
+
 
             if (string.Equals(currentFormKey, formKey, StringComparison.Ordinal))
             {
@@ -92,5 +99,6 @@ namespace PCessentials.Forms
             OpenChildForm(form, null);
             currentFormKey = formKey;
         }
+
     }
 }
