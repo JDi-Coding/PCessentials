@@ -36,12 +36,12 @@ namespace PCessentials.assets.PrintManager
         public event Action<PrintJob> OnJobFinished;
         public event Action<PrintJob, string> OnStatusUpdate;
 
-        public List<string> GetInstalledPrinters()
+        public List<string> getInstalledPrinters()
         {
             return PrinterSettings.InstalledPrinters.Cast<string>().ToList();
         }
 
-        public void AddPrintJob(PrintJob job)
+        public void addPrintJob(PrintJob job)
         {
             lock (printQueue)
             {
@@ -49,21 +49,21 @@ namespace PCessentials.assets.PrintManager
             }
         }
 
-        public void StartProcessing()
+        public void startProcessing()
         {
             if (cts != null) return; // Already running
 
             cts = new CancellationTokenSource();
-            Task.Run(() => ProcessQueue(cts.Token));
+            Task.Run(() => processQueue(cts.Token));
         }
 
-        public void StopProcessing()
+        public void stopProcessing()
         {
             cts?.Cancel();
             cts = null;
         }
 
-        private void ProcessQueue(CancellationToken token)
+        private void processQueue(CancellationToken token)
         {
             while (!token.IsCancellationRequested)
             {
@@ -82,7 +82,7 @@ namespace PCessentials.assets.PrintManager
 
                     try
                     {
-                        Print(job);
+                        print(job);
                         job.Status = "Fertig";
                     }
                     catch (Exception ex)
@@ -99,7 +99,7 @@ namespace PCessentials.assets.PrintManager
             }
         }
 
-        private void Print(PrintJob job)
+        private void print(PrintJob job)
         {
             // TODO: Implementiere den Druckvorgang
             // Verwende PDF-Drucktool deiner Wahl z.B. Acrobat, PDFSharp, Ghostscript etc.

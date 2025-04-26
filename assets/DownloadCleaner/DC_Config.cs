@@ -12,7 +12,7 @@ namespace DownloadCleanerV2.assets
     /// 
     /// Here we have the "DownloadFolderPath", Files and Folders Location.
     /// </summary>
-    public class Config : Folders
+    public class DC_Config : Folders
     {
         public static string DownloadFolderPath;
 
@@ -30,7 +30,7 @@ namespace DownloadCleanerV2.assets
         /// Method <c> SetDownloadFolderPath </c> returns the path of the download folder.
         /// </summary>
         /// <returns></returns>
-        public static string SetDownloadFolderPath()
+        public static string setDownloadFolderPath()
         {
             //get the Users Download Folder Path
             return Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders", "{374DE290-123F-4565-9164-39C4925E467B}", String.Empty).ToString();
@@ -41,7 +41,7 @@ namespace DownloadCleanerV2.assets
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        protected static string[] GetFiles(string path)
+        protected static string[] getFiles(string path)
         {
             return System.IO.Directory.GetFiles(path);
         }
@@ -51,7 +51,7 @@ namespace DownloadCleanerV2.assets
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        protected static string[] GetFolders(string path)
+        protected static string[] getFolders(string path)
         {
             return System.IO.Directory.GetDirectories(path);
         }

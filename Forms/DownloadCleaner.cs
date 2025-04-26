@@ -28,7 +28,7 @@ namespace PCessentials.Forms
             if (cbox_StartUp.Checked)
             {
                 lbl_StatusMsg.Text = "Cleaning...";
-                cleaner.StartCleaning();
+                cleaner.startCleaning();
                 lbl_StatusMsg.Text = "Finished Cleaning";
             }
 
@@ -36,7 +36,7 @@ namespace PCessentials.Forms
         private void btn_StartCleaning_Click(object sender, EventArgs e)
         {
             lbl_StatusMsg.Text = "Cleaning...";
-            this.cleaner.StartCleaning();
+            this.cleaner.startCleaning();
             lbl_StatusMsg.Text = "Finished Cleaning";
         }
         private void cbox_StartUp_CheckedChanged(object sender, EventArgs e)

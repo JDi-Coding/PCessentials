@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DownloadCleanerV2.assets
 {
-    public class Cleaner : Config
+    public class Cleaner : DC_Config
     {
         //TODO: Implement the Cleaner Class
         // LOGIC to move the Files to the respective folders
         public Cleaner()
         {
-            DownloadFolderPath = SetDownloadFolderPath();
+            DownloadFolderPath = setDownloadFolderPath();
             _FolderNames = new string[] {
                 "Images", "Video",
                 "Audio",  "Zips",
@@ -21,18 +21,18 @@ namespace DownloadCleanerV2.assets
                 "Sys-Image", "Code",
                 "Ohter"
             };
-            CreateFolders(DownloadFolderPath, _FolderNames);
+            createFoldersInPath(DownloadFolderPath, _FolderNames);
         }
-        public void StartCleaning()
+        public void startCleaning()
         {
-            Files = GetFiles(DownloadFolderPath);
-            Folders = GetFolders(DownloadFolderPath);
+            Files = getFiles(DownloadFolderPath);
+            Folders = getFolders(DownloadFolderPath);
             foreach (string File in Files)
             {
                 //should be D:/Downloads/FileName.Extension
                 string fExt = System.IO.Path.GetExtension(File);
 
-                MoveFile(File, DecideFolder(fExt));
+                moveFileToFolder(File, decideFolder(fExt));
             }
         }
 
@@ -41,7 +41,7 @@ namespace DownloadCleanerV2.assets
         /// </summary>
         /// <param name="File"></param>
         /// <param name="Folder"></param>
-        private void MoveFile(string File, string Folder)
+        private void moveFileToFolder(string File, string Folder)
         {
             try
             {

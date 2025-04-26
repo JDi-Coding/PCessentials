@@ -91,7 +91,7 @@ namespace PCessentials.Forms
         private void RefreshCategoryList()
         {
             lstServices.Items.Clear();
-            lstServices.Items.AddRange(manager.GetCategories().ToArray());
+            lstServices.Items.AddRange(manager.getCategories().ToArray());
             txtCategoryName.Clear();
 
             dgvEntries.DataSource = null;
@@ -110,7 +110,7 @@ namespace PCessentials.Forms
         {
             try
             {
-                manager.AddCategory(txtCategoryName.Text.Trim());
+                manager.addCategory(txtCategoryName.Text.Trim());
                 RefreshCategoryList();
             }
             catch (Exception ex)
@@ -126,7 +126,7 @@ namespace PCessentials.Forms
             string newName = txtCategoryName.Text.Trim();
             try
             {
-                manager.RenameCategory(oldName, newName);
+                manager.renameCategory(oldName, newName);
                 RefreshCategoryList();
             }
             catch (Exception ex)
@@ -141,7 +141,7 @@ namespace PCessentials.Forms
             string name = lstServices.SelectedItem.ToString();
             try
             {
-                manager.RemoveCategory(name);
+                manager.removeCategory(name);
                 RefreshCategoryList();
             }
             catch (Exception ex)
@@ -156,7 +156,7 @@ namespace PCessentials.Forms
         private void RefreshEntries()
         {
             string cat = lstServices.SelectedItem.ToString();
-            var entries = manager.GetEntries(cat).Select(entry => new
+            var entries = manager.getEntries(cat).Select(entry => new
             {
                 entry.Name,
                 entry.Id
@@ -179,7 +179,7 @@ namespace PCessentials.Forms
         {
             if (dgvEntries.CurrentRow == null) return;
             var selectedId = (Guid)dgvEntries.CurrentRow.Cells["Id"].Value;
-            var entry = manager.GetEntries(lstServices.SelectedItem.ToString())
+            var entry = manager.getEntries(lstServices.SelectedItem.ToString())
                                 .FirstOrDefault(entryItem => entryItem.Id == selectedId);
 
             if (entry != null)
@@ -232,7 +232,7 @@ namespace PCessentials.Forms
             };
             try
             {
-                manager.AddEntry(lstServices.SelectedItem.ToString(), entry);
+                manager.addEntry(lstServices.SelectedItem.ToString(), entry);
                 RefreshEntries();
             }
             catch (Exception ex)
@@ -250,7 +250,7 @@ namespace PCessentials.Forms
             }
 
             var selectedId = (Guid)dgvEntries.CurrentRow.Cells["Id"].Value;
-            var entry = manager.GetEntries(lstServices.SelectedItem.ToString())
+            var entry = manager.getEntries(lstServices.SelectedItem.ToString())
                                 .FirstOrDefault(entryItem => entryItem.Id == selectedId);
 
             if (entry == null)
@@ -267,7 +267,7 @@ namespace PCessentials.Forms
 
             try
             {
-                manager.UpdateEntry(lstServices.SelectedItem.ToString(), entry);
+                manager.updateEntry(lstServices.SelectedItem.ToString(), entry);
                 RefreshEntries();
             }
             catch (Exception ex)
@@ -288,7 +288,7 @@ namespace PCessentials.Forms
 
             try
             {
-                manager.RemoveEntry(lstServices.SelectedItem.ToString(), selectedId);
+                manager.removeEntry(lstServices.SelectedItem.ToString(), selectedId);
                 RefreshEntries();
             }
             catch (Exception ex)
@@ -399,7 +399,7 @@ namespace PCessentials.Forms
                 {
                     try
                     {
-                        manager.ExportToJson(saveFileDialog.FileName);
+                        manager.exportToJson(saveFileDialog.FileName);
                         MessageBox.Show("Export erfolgreich!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -421,7 +421,7 @@ namespace PCessentials.Forms
                 {
                     try
                     {
-                        manager.ImportFromJson(openFileDialog.FileName);
+                        manager.importFromJson(openFileDialog.FileName);
                         MessageBox.Show("Import erfolgreich!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshCategoryList();
                     }

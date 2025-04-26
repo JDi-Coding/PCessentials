@@ -115,7 +115,7 @@ namespace PCessentials.Forms
             try
             {
                 lBox_WD_Auftraege.Items.Clear();
-                IReadOnlyList<DownloadAuftrag> list = _downloader.GetDownloadAuftraege();
+                IReadOnlyList<DownloadAuftrag> list = _downloader.getDownloadAuftraege();
                 foreach (DownloadAuftrag l in list)
                 {
                     lBox_WD_Auftraege.Items.Add(l.Url);
@@ -150,7 +150,7 @@ namespace PCessentials.Forms
                 return;
             }
             // Add the Auftrag to the List
-            bool opSuccess = _downloader.AddDownloadAuftrag(url, plattform, onlyAudio);
+            bool opSuccess = _downloader.addDownloadAuftrag(url, plattform, onlyAudio);
             if (opSuccess)
             {
                 DisplayMessage("Der Auftrag wurde hinzugefügt");
@@ -176,7 +176,7 @@ namespace PCessentials.Forms
             btn_WD_AddAuftrag.Enabled = false;
             btn_WD_clearDownloadJobs.Enabled = false;
             btn_WD_StartDownload.Enabled = false;
-            _downloader.StartDownload();
+            _downloader.startDownload();
 
             btn_WD_AddAuftrag.Enabled = true;
             btn_WD_clearDownloadJobs.Enabled = true;

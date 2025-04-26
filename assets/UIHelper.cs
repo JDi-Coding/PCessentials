@@ -10,7 +10,7 @@ namespace PCessentials.assets
     /// </summary>
     public static class UIHelper
     {
-        public static void StyleModernListBox(ListBox listBox)
+        public static void styleModernListBox(ListBox listBox)
         {
             // Grund-Einstellungen
             listBox.BorderStyle = BorderStyle.None;

@@ -2931,7 +2931,7 @@
 											"top": 343,
 											"width": 182.6953125,
 											"height": 13,
-											"text": "Config"
+											"text": "DC_Config"
 										},
 										{
 											"_type": "LabelView",
@@ -10989,7 +10989,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Config",
+					"name": "DC_Config",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -11060,7 +11060,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWcml+zb0D9C0="
 									},
-									"name": "string path"
+									"name": "string path",
+									"type": ""
 								}
 							]
 						},
@@ -11114,7 +11115,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcl/Z/zDpK7E="
 							},
-							"name": "_FolderNames"
+							"name": "_FolderNames",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -11132,7 +11134,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWcmScG5efyqs="
 									},
-									"name": "int Index"
+									"name": "int Index",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11437,7 +11440,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWcnEgrjQec5M="
 									},
-									"name": "object sender"
+									"name": "object sender",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11445,7 +11449,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWcnEgrjQec5M="
 									},
-									"name": "EventArgs e"
+									"name": "EventArgs e",
+									"type": ""
 								}
 							]
 						},
@@ -11643,7 +11648,8 @@
 								"$ref": "AAAAAAGWcm9FKCygGH0="
 							},
 							"name": "categories",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -12177,7 +12183,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcnyEb0N+5X8="
 							},
-							"name": "pManager"
+							"name": "pManager",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -12410,7 +12417,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcn5kD5n8/p8="
 							},
-							"name": "PaperSize"
+							"name": "PaperSize",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12437,7 +12445,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcn/gqKrXfqA="
 							},
-							"name": "printQueue"
+							"name": "printQueue",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12445,7 +12454,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcn/gqKrXfqA="
 							},
-							"name": "cts"
+							"name": "cts",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12453,7 +12463,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcn/gqKrXfqA="
 							},
-							"name": "OnJobStarted"
+							"name": "OnJobStarted",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12461,7 +12472,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcn/gqKrXfqA="
 							},
-							"name": "OnJobFinished"
+							"name": "OnJobFinished",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -12469,7 +12481,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGWcn/gqKrXfqA="
 							},
-							"name": "OnStatusUpdate"
+							"name": "OnStatusUpdate",
+							"type": ""
 						}
 					],
 					"operations": [

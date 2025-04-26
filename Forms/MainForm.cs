@@ -28,11 +28,11 @@ namespace PCessentials.Forms
             _formService = new FormService();
 
             // ListBox mit allen verfügbaren Form-Namen füllen
-            listBoxForms.DataSource = _formService.GetFormNames().ToList();
+            listBoxForms.DataSource = _formService.getFormNames().ToList();
             listBoxForms.SelectedIndexChanged += ListBoxForms_SelectedIndexChanged;
 
             // Modernes Styling anwenden
-            UIHelper.StyleModernListBox(listBoxForms);
+            UIHelper.styleModernListBox(listBoxForms);
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace PCessentials.Forms
             }
 
             CloseActiveForm();
-            var form = _formService.CreateForm(formKey);
+            var form = _formService.createForm(formKey);
             OpenChildForm(form, null);
             currentFormKey = formKey;
         }

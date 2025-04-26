@@ -31,7 +31,7 @@ namespace PCessentials.Forms
         private void PrintManager_Load(object sender, EventArgs e)
         {
             // Drucker auslesen
-            cmbPrinters.Items.AddRange(pManager.GetInstalledPrinters().ToArray());
+            cmbPrinters.Items.AddRange(pManager.getInstalledPrinters().ToArray());
             if (cmbPrinters.Items.Count > 0)
                 cmbPrinters.SelectedIndex = 0;
 
@@ -70,7 +70,7 @@ namespace PCessentials.Forms
                 // Mehrfachkopien
                 for (int i = 0; i < numCopies.Value; i++)
                 {
-                    pManager.AddPrintJob(job);
+                    pManager.addPrintJob(job);
 
                     // In ListView anzeigen
                     var lvi = new ListViewItem(new[] {
@@ -86,10 +86,10 @@ namespace PCessentials.Forms
         }
 
         private void btnStart_Click(object sender, EventArgs e)
-            => pManager.StartProcessing();
+            => pManager.startProcessing();
 
         private void btnStop_Click(object sender, EventArgs e)
-            => pManager.StopProcessing();
+            => pManager.stopProcessing();
 
         // Event-Handler zur UI-Aktualisierung
         private void PManager_OnJobStarted(PrintJob job)

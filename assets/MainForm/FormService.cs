@@ -36,12 +36,12 @@ namespace PCessentials.assets.MainForm
         /// <summary>
         /// Gibt die Namen aller gefundenen Forms zurück (alphabetisch sortiert).
         /// </summary>
-        public IEnumerable<string> GetFormNames() => formFactories.Keys.OrderBy(k => k);
+        public IEnumerable<string> getFormNames() => formFactories.Keys.OrderBy(k => k);
 
         /// <summary>
         /// Erzeugt ein neues Form-Objekt anhand des Form-Namens.
         /// </summary>
-        public Form CreateForm(string formName)
+        public Form createForm(string formName)
         {
             if (formFactories.TryGetValue(formName, out var factory))
                 return factory();

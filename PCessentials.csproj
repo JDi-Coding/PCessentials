@@ -130,7 +130,7 @@
   <ItemGroup>
     <Compile Include="assets\config.cs" />
     <Compile Include="assets\DownloadCleaner\Cleaner.cs" />
-    <Compile Include="assets\DownloadCleaner\Config.cs" />
+    <Compile Include="assets\DownloadCleaner\DC_Config.cs" />
     <Compile Include="assets\DownloadCleaner\Folders.cs" />
     <Compile Include="assets\MainForm\FormService.cs" />
     <Compile Include="assets\PrintManager\PManager.cs" />

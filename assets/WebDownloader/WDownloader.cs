@@ -57,7 +57,7 @@ namespace PCessentials.assets.WebDownloader
         static WDownloader()
         {
             // Initialize FFmpeg binaries once
-            _ = InitializeFFmpegAsync();
+            _ = initializeFFmpegAsync();
         }
 
         public WDownloader(string downloadPath)
@@ -69,7 +69,7 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Setup FFmpeg executables.
         /// </summary>
-        private static async Task InitializeFFmpegAsync()
+        private static async Task initializeFFmpegAsync()
         {
             var ffmpegDir = Path.Combine(Application.StartupPath, "ffmpeg");
             await FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, ffmpegDir);
@@ -79,7 +79,7 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Adds a new download job.
         /// </summary>
-        public bool AddDownloadAuftrag(string url, string plattform, bool onlyAudio = false)
+        public bool addDownloadAuftrag(string url, string plattform, bool onlyAudio = false)
         {
             try
             {
@@ -98,17 +98,17 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Returns the current list of jobs (read-only).
         /// </summary>
-        public IReadOnlyList<DownloadAuftrag> GetDownloadAuftraege() => jobs.AsReadOnly();
+        public IReadOnlyList<DownloadAuftrag> getDownloadAuftraege() => jobs.AsReadOnly();
 
         /// <summary>
         /// Starts all queued downloads asynchronously.
         /// </summary>
-        public void StartDownload()
+        public void startDownload()
         {
-            _ = DownloadAllAsync();
+            _ = downloadAllAsync();
         }
 
-        private async Task DownloadAllAsync()
+        private async Task downloadAllAsync()
         {
             var jobsCopy = jobs.ToList(); // Kopie der Liste erstellen
             foreach (var job in jobsCopy)
@@ -118,19 +118,19 @@ namespace PCessentials.assets.WebDownloader
                 switch (job.Plattform.ToLowerInvariant())
                 {
                     case "youtube":
-                        await DownloadYouTubeAsync(job);
+                        await downloadYouTubeAsync(job);
                         break;
                     case "twitter":
-                        await DownloadTwitterAsync(job);
+                        await downloadTwitterAsync(job);
                         break;
                     case "instagram":
-                        await DownloadInstagramAsync(job);
+                        await downloadInstagramAsync(job);
                         break;
                     case "tiktok":
-                        await DownloadTikTokAsync(job);
+                        await downloadTikTokAsync(job);
                         break;
                     case "vimeo":
-                        await DownloadVimeoAsync(job);
+                        await downloadVimeoAsync(job);
                         break;
                     default:
                         StatusChanged?.Invoke(job, $"Platform '{job.Plattform}' not implemented.");
@@ -145,7 +145,7 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Handles YouTube downloads (video + merge, or audio only).
         /// </summary>
-        private async Task DownloadYouTubeAsync(DownloadAuftrag job)
+        private async Task downloadYouTubeAsync(DownloadAuftrag job)
         {
             try
             {
@@ -234,7 +234,7 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Downloads Twitter video/audio using yt-dlp.
         /// </summary>
-        private async Task DownloadTwitterAsync(DownloadAuftrag job)
+        private async Task downloadTwitterAsync(DownloadAuftrag job)
         {
             var ytDlpPath = Path.Combine(Application.StartupPath, "yt-dlp.exe");
             if (!File.Exists(ytDlpPath))
@@ -265,8 +265,8 @@ namespace PCessentials.assets.WebDownloader
             var process = new Process { StartInfo = psi, EnableRaisingEvents = true };
             var tcs = new TaskCompletionSource<bool>();
 
-            process.ErrorDataReceived += (s, e) => ParseYtDlpOutput(job, e.Data);
-            process.OutputDataReceived += (s, e) => ParseYtDlpOutput(job, e.Data);
+            process.ErrorDataReceived += (s, e) => parseYtDlpOutput(job, e.Data);
+            process.OutputDataReceived += (s, e) => parseYtDlpOutput(job, e.Data);
             process.Exited += (s, e) => tcs.TrySetResult(true);
 
             process.Start();
@@ -283,23 +283,23 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Downloads TikTok video/audio using yt-dlp.
         /// </summary>
-        private async Task DownloadTikTokAsync(DownloadAuftrag job)
+        private async Task downloadTikTokAsync(DownloadAuftrag job)
         {
-            await DownloadGenericWithYtDlp(job);
+            await downloadGenericWithYtDlp(job);
         }
 
         /// <summary>
         /// Downloads Vimeo video/audio using yt-dlp.
         /// </summary>
-        private async Task DownloadVimeoAsync(DownloadAuftrag job)
+        private async Task downloadVimeoAsync(DownloadAuftrag job)
         {
-            await DownloadGenericWithYtDlp(job);
+            await downloadGenericWithYtDlp(job);
         }
 
         /// <summary>
         /// Generic download logic via yt-dlp for platforms supported by yt-dlp.
         /// </summary>
-        private async Task DownloadGenericWithYtDlp(DownloadAuftrag job)
+        private async Task downloadGenericWithYtDlp(DownloadAuftrag job)
         {
             var ytDlpPath = Path.Combine(Application.StartupPath, "yt-dlp.exe");
             if (!File.Exists(ytDlpPath))
@@ -329,8 +329,8 @@ namespace PCessentials.assets.WebDownloader
             var process = new Process { StartInfo = psi, EnableRaisingEvents = true };
             var tcs = new TaskCompletionSource<bool>();
 
-            process.OutputDataReceived += (s, e) => ParseYtDlpOutput(job, e.Data);
-            process.ErrorDataReceived += (s, e) => ParseYtDlpOutput(job, e.Data);
+            process.OutputDataReceived += (s, e) => parseYtDlpOutput(job, e.Data);
+            process.ErrorDataReceived += (s, e) => parseYtDlpOutput(job, e.Data);
             process.Exited += (s, e) => tcs.TrySetResult(true);
 
             process.Start();
@@ -347,7 +347,7 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Downloads Instagram video/audio using yt-dlp.
         /// </summary>
-        private async Task DownloadInstagramAsync(DownloadAuftrag job)
+        private async Task downloadInstagramAsync(DownloadAuftrag job)
         {
             var ytDlpPath = Path.Combine(Application.StartupPath, "yt-dlp.exe");
             if (!File.Exists(ytDlpPath))
@@ -379,8 +379,8 @@ namespace PCessentials.assets.WebDownloader
             var process = new Process { StartInfo = psi, EnableRaisingEvents = true };
             var tcs = new TaskCompletionSource<bool>();
 
-            process.OutputDataReceived += (s, e) => ParseYtDlpOutput(job, e.Data);
-            process.ErrorDataReceived += (s, e) => ParseYtDlpOutput(job, e.Data);
+            process.OutputDataReceived += (s, e) => parseYtDlpOutput(job, e.Data);
+            process.ErrorDataReceived += (s, e) => parseYtDlpOutput(job, e.Data);
             process.Exited += (s, e) => tcs.TrySetResult(true);
 
             process.Start();
@@ -397,7 +397,7 @@ namespace PCessentials.assets.WebDownloader
         /// <summary>
         /// Parses yt-dlp output lines for progress updates.
         /// </summary>
-        private void ParseYtDlpOutput(DownloadAuftrag job, string line)
+        private void parseYtDlpOutput(DownloadAuftrag job, string line)
         {
             if (string.IsNullOrEmpty(line)) return;
 

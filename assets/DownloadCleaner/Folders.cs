@@ -50,7 +50,7 @@ namespace DownloadCleanerV2.assets
         /// Method <c> CreateFolders </c> creates the folders in the given path.
         /// </summary>
         /// <param name="path"></param>
-        public void CreateFolders(string path, string[] Folders)
+        public void createFoldersInPath(string path, string[] Folders)
         {
             foreach (string Folder in Folders)
             {
@@ -60,7 +60,7 @@ namespace DownloadCleanerV2.assets
             }
         }
 
-        public string DecideFolder(string FileExtension)
+        public string decideFolder(string FileExtension)
         {
             switch (FileExtension)
             {

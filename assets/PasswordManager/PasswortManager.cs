@@ -25,7 +25,7 @@ namespace PCessentials
             );
             Directory.CreateDirectory(appDir);
             dataFilePath = Path.Combine(appDir, DataFileName);
-            Load();
+            load();
         }
 
         public class PasswordEntry
@@ -39,10 +39,10 @@ namespace PCessentials
             public string Other { get; set; }
         }
 
-        public IEnumerable<string> GetCategories() =>
+        public IEnumerable<string> getCategories() =>
             new List<string>(categories.Keys);
 
-        public void AddCategory(string serviceName)
+        public void addCategory(string serviceName)
         {
             if (string.IsNullOrWhiteSpace(serviceName))
                 throw new ArgumentException("Service-Name darf nicht leer sein.");
@@ -50,10 +50,10 @@ namespace PCessentials
                 throw new InvalidOperationException("Diese Kategorie existiert bereits.");
 
             categories[serviceName] = new List<PasswordEntry>();
-            Save();
+            save();
         }
 
-        public void RenameCategory(string oldName, string newName)
+        public void renameCategory(string oldName, string newName)
         {
             if (!categories.ContainsKey(oldName))
                 throw new KeyNotFoundException("Alte Kategorie nicht gefunden.");
@@ -63,10 +63,10 @@ namespace PCessentials
             var entries = categories[oldName];
             categories.Remove(oldName);
             categories[newName] = entries;
-            Save();
+            save();
         }
 
-        public void RemoveCategory(string serviceName)
+        public void removeCategory(string serviceName)
         {
             if (!categories.ContainsKey(serviceName))
                 throw new KeyNotFoundException("Kategorie nicht gefunden.");
@@ -74,27 +74,27 @@ namespace PCessentials
                 throw new InvalidOperationException("Kategorie enthält noch Einträge.");
 
             categories.Remove(serviceName);
-            Save();
+            save();
         }
 
-        public IEnumerable<PasswordEntry> GetEntries(string serviceName)
+        public IEnumerable<PasswordEntry> getEntries(string serviceName)
         {
             if (!categories.ContainsKey(serviceName))
                 throw new KeyNotFoundException("Kategorie nicht gefunden.");
             return new List<PasswordEntry>(categories[serviceName]);
         }
 
-        public void AddEntry(string serviceName, PasswordEntry entry)
+        public void addEntry(string serviceName, PasswordEntry entry)
         {
             if (entry == null) throw new ArgumentNullException(nameof(entry));
             if (!categories.ContainsKey(serviceName))
                 throw new KeyNotFoundException("Kategorie nicht gefunden.");
 
             categories[serviceName].Add(entry);
-            Save();
+            save();
         }
 
-        public void UpdateEntry(string serviceName, PasswordEntry updatedEntry)
+        public void updateEntry(string serviceName, PasswordEntry updatedEntry)
         {
             if (updatedEntry == null) throw new ArgumentNullException(nameof(updatedEntry));
             if (!categories.ContainsKey(serviceName))
@@ -105,10 +105,10 @@ namespace PCessentials
             if (idx < 0) throw new KeyNotFoundException("Eintrag nicht gefunden.");
 
             list[idx] = updatedEntry;
-            Save();
+            save();
         }
 
-        public void RemoveEntry(string serviceName, Guid entryId)
+        public void removeEntry(string serviceName, Guid entryId)
         {
             if (!categories.ContainsKey(serviceName))
                 throw new KeyNotFoundException("Kategorie nicht gefunden.");
@@ -117,14 +117,14 @@ namespace PCessentials
             var removed = list.RemoveAll(e => e.Id == entryId);
             if (removed == 0) throw new KeyNotFoundException("Eintrag nicht gefunden.");
 
-            Save();
+            save();
         }
 
         /// <summary>
         /// Exportiert die verschlüsselte Datenbank als Base64-kodiertes JSON.
         /// </summary>
         /// <param name="exportPath">Pfad zur Export-Datei (z. B. export.json)</param>
-        public void ExportToJson(string exportPath)
+        public void exportToJson(string exportPath)
         {
             if (!File.Exists(dataFilePath))
                 throw new FileNotFoundException("Keine gespeicherten Passwörter gefunden.", dataFilePath);
@@ -139,7 +139,7 @@ namespace PCessentials
         /// Importiert eine Base64-kodierte JSON-Datei und überschreibt die lokale Datenbank.
         /// </summary>
         /// <param name="importPath">Pfad zur Import-Datei (z. B. export.json)</param>
-        public void ImportFromJson(string importPath)
+        public void importFromJson(string importPath)
         {
             if (!File.Exists(importPath))
                 throw new FileNotFoundException("Import-Datei nicht gefunden.", importPath);
@@ -154,7 +154,7 @@ namespace PCessentials
                          ?? new Dictionary<string, List<PasswordEntry>>();
 
             // Lokale Datei aktualisieren
-            Save();
+            save();
         }
 
         private class ExportWrapper
@@ -162,7 +162,7 @@ namespace PCessentials
             public string Data { get; set; }
         }
 
-        private void Load()
+        private void load()
         {
             if (!File.Exists(dataFilePath))
             {
@@ -179,7 +179,7 @@ namespace PCessentials
                            ?? new Dictionary<string, List<PasswordEntry>>();
         }
 
-        private void Save()
+        private void save()
         {
             var json = JsonConvert.SerializeObject(
                                 categories,
