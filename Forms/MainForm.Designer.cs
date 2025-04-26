@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnl_MF_Sidebar = new System.Windows.Forms.Panel();
+            this.pnl_MF_FormList = new System.Windows.Forms.Panel();
             this.listBoxForms = new System.Windows.Forms.ListBox();
             this.pnl_MF_SidebarBottom = new System.Windows.Forms.Panel();
             this.btn_MF_Help = new System.Windows.Forms.Button();
             this.btn_MF_Settings = new System.Windows.Forms.Button();
             this.pnl_MF_Content = new System.Windows.Forms.Panel();
             this.pnl_MF_Top = new System.Windows.Forms.Panel();
-            this.pnl_MF_SidebarTopLogo = new System.Windows.Forms.Panel();
             this.tt_MF = new System.Windows.Forms.ToolTip(this.components);
-            this.pnl_MF_FormList = new System.Windows.Forms.Panel();
+            this.pnl_MF_SidebarTopLogo = new System.Windows.Forms.Panel();
             this.pnl_MF_Sidebar.SuspendLayout();
-            this.pnl_MF_SidebarBottom.SuspendLayout();
             this.pnl_MF_FormList.SuspendLayout();
+            this.pnl_MF_SidebarBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_MF_Sidebar
@@ -57,6 +57,17 @@
             this.pnl_MF_Sidebar.Name = "pnl_MF_Sidebar";
             this.pnl_MF_Sidebar.Size = new System.Drawing.Size(345, 861);
             this.pnl_MF_Sidebar.TabIndex = 0;
+            // 
+            // pnl_MF_FormList
+            // 
+            this.pnl_MF_FormList.Controls.Add(this.listBoxForms);
+            this.pnl_MF_FormList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnl_MF_FormList.Location = new System.Drawing.Point(0, 73);
+            this.pnl_MF_FormList.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.pnl_MF_FormList.Name = "pnl_MF_FormList";
+            this.pnl_MF_FormList.Padding = new System.Windows.Forms.Padding(10);
+            this.pnl_MF_FormList.Size = new System.Drawing.Size(325, 682);
+            this.pnl_MF_FormList.TabIndex = 3;
             // 
             // listBoxForms
             // 
@@ -117,9 +128,13 @@
             this.pnl_MF_Top.Size = new System.Drawing.Size(1459, 74);
             this.pnl_MF_Top.TabIndex = 2;
             // 
+            // tt_MF
+            // 
+            this.tt_MF.ToolTipTitle = "-";
+            // 
             // pnl_MF_SidebarTopLogo
             // 
-            this.pnl_MF_SidebarTopLogo.BackgroundImage = global::PCessentials.Properties.Resources.NT_3;
+            this.pnl_MF_SidebarTopLogo.BackgroundImage = global::PCessentials.Properties.Resources.PCessential_logo;
             this.pnl_MF_SidebarTopLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnl_MF_SidebarTopLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_MF_SidebarTopLogo.Location = new System.Drawing.Point(0, 0);
@@ -127,21 +142,6 @@
             this.pnl_MF_SidebarTopLogo.Name = "pnl_MF_SidebarTopLogo";
             this.pnl_MF_SidebarTopLogo.Size = new System.Drawing.Size(343, 73);
             this.pnl_MF_SidebarTopLogo.TabIndex = 1;
-            // 
-            // tt_MF
-            // 
-            this.tt_MF.ToolTipTitle = "-";
-            // 
-            // pnl_MF_FormList
-            // 
-            this.pnl_MF_FormList.Controls.Add(this.listBoxForms);
-            this.pnl_MF_FormList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnl_MF_FormList.Location = new System.Drawing.Point(0, 73);
-            this.pnl_MF_FormList.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.pnl_MF_FormList.Name = "pnl_MF_FormList";
-            this.pnl_MF_FormList.Padding = new System.Windows.Forms.Padding(10);
-            this.pnl_MF_FormList.Size = new System.Drawing.Size(325, 682);
-            this.pnl_MF_FormList.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -156,8 +156,8 @@
             this.Name = "MainForm";
             this.Text = "PCessentials";
             this.pnl_MF_Sidebar.ResumeLayout(false);
-            this.pnl_MF_SidebarBottom.ResumeLayout(false);
             this.pnl_MF_FormList.ResumeLayout(false);
+            this.pnl_MF_SidebarBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

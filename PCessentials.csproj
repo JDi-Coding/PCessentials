@@ -226,6 +226,7 @@
     <Content Include="assets\_Texture\NT_1.png" />
     <Content Include="assets\_Texture\NT_2.png" />
     <Content Include="assets\_Texture\NT_3.png" />
+    <Content Include="assets\_Texture\PCessential_logo.png" />
     <Content Include="Diagramms\WebDownloader\WebDownloaderClassDiag.drawio.png" />
     <Content Include="Tools\youtube-dl.exe" />
     <Content Include="Tools\yt-dlp.exe">
