@@ -1,4 +1,5 @@
-﻿using PCessentials.assets.PrintManager;
+﻿using PCessentials.assets;
+using PCessentials.assets.PrintManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,10 +23,29 @@ namespace PCessentials.Forms
 
 
             pManager = new PManager();
+
             // Event-Handler subscriben
             pManager.OnJobStarted += PManager_OnJobStarted;
             pManager.OnStatusUpdate += PManager_OnStatusUpdate;
             pManager.OnJobFinished += PManager_OnJobFinished;
+
+            this.FormClosed += PrintManager_FormClosed;
+            config.DarkModeChanged += StylePManager;
+
+
+        }
+
+        private void StylePManager()
+        {
+            UIHelper.StyleModernLabel(lbl_PM_Header, true);
+            UIHelper.StyleModernButton(btnBrowse);
+            UIHelper.StyleModernButton(btnStart);
+            UIHelper.StyleModernButton(btnPause);
+            UIHelper.StyleModernButton(btnStop);
+            UIHelper.StyleModernCheckBox(chkA4);
+            UIHelper.StyleModernCheckBox(chkDuplex);
+            UIHelper.StyleModernCheckBox(chkLandscape);
+            UIHelper.StyleModernChildForm(this);
         }
 
         private void PrintManager_Load(object sender, EventArgs e)
@@ -117,6 +137,11 @@ namespace PCessentials.Forms
                     break;
                 }
             }
+        }
+        
+        private void PrintManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            config.DarkModeChanged -= StylePManager;
         }
 
 

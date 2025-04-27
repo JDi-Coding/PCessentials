@@ -22,16 +22,34 @@ namespace PCessentials.Forms
         private Button currentButton;
         private string currentFormKey;
         private bool isFullscreen = false;
+
+
         public void EnableFormStyles()
         {
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             this.UpdateStyles();
         }
 
+        private void StyleForm()
+        {
+            // Apply modern styling
+            UIHelper.StyleModernMainForm(this, Color.DodgerBlue);
+            UIHelper.StyleModernListBox(listBoxForms);
+            UIHelper.StyleModernPanel(pnl_MF_Content);
+            UIHelper.StyleModernPanel(pnl_MF_Top);
+            UIHelper.StyleModernPanel(pnl_MF_TopLeft);
+            UIHelper.StyleModernPanel(pnl_MF_Sidebar);
+            UIHelper.StyleModernPanel(pnl_MF_Bottom);
+            UIHelper.StyleModernPanel(pnl_MF_SidebarBottom);
+        }
+
         public MainForm()
         {
             InitializeComponent();
             EnableFormStyles();
+            StyleForm();
+            config.DarkModeChanged += StyleForm;
+
 
             //mouse events for dragging and Resizing the MainForm
             this.FormBorderStyle = FormBorderStyle.None;
@@ -46,14 +64,6 @@ namespace PCessentials.Forms
             // Fill ListBox with all available form names
             listBoxForms.DataSource = _formService.getFormNames().ToList();
             listBoxForms.SelectedIndexChanged += ListBoxForms_SelectedIndexChanged;
-
-
-
-
-            // Apply modern styling
-            UIHelper.StyleModernMainForm(this, Color.DodgerBlue);
-            UIHelper.StyleModernListBox(listBoxForms);
-            UIHelper.StyleModernPanel(pnl_MF_Content);
 
             // Timer für Fade-In/Out
             _fadeTimer = new Timer { Interval = FadeInterval };
@@ -77,9 +87,6 @@ namespace PCessentials.Forms
             _prevWindowState = this.WindowState;
             this.Resize += MainForm_Resize;
         }
-
-        
-
 
         #region Form Resize and Moving
         // Hit-test messages & codes for moving and resizing
@@ -192,7 +199,6 @@ namespace PCessentials.Forms
             }
         }
 
-
         /// <summary>
         /// Opens the given child form inside our content panel.
         /// Button color change only happens if a button is passed.
@@ -215,6 +221,7 @@ namespace PCessentials.Forms
             childForm.Dock = DockStyle.Fill;
             pnl_MF_Content.Controls.Add(childForm);
             pnl_MF_Content.Tag = childForm;
+            UIHelper.StyleModernChildForm(childForm);
             childForm.BringToFront();
             childForm.Show();
         }

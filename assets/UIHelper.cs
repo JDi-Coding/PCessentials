@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -10,9 +11,8 @@ namespace PCessentials.assets
     /// </summary>
     public static class UIHelper
     {
-
         // Central property to check for DarkMode
-        private static bool IsDarkMode => Properties.Settings.Default.DarkModeEnabled;
+        private static bool IsDarkMode => config.isDarkmode();
 
         #region Forms
         public static void StyleModernMainForm(Form form, Color? borderColor = null)
@@ -89,51 +89,6 @@ namespace PCessentials.assets
             catch { /* Sicherheits-try-catch */ }
         }
 
-        /// <summary>
-        /// Styles a child form to have a modern look with a fade-in effect.
-        /// </summary>
-        /// <param name="form"></param>
-        public static void StyleModernChildFormWithFade(Form form)
-        {
-
-            // Basis-Styles (gleich wie bisher)
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            form.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
-            form.ForeColor = IsDarkMode ? Color.White : Color.Black;
-            form.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-
-            // Runde Ecken (optional)
-            try
-            {
-                form.Region = System.Drawing.Region.FromHrgn(
-                    CreateRoundRectRgn(0, 0, form.Width, form.Height, 8, 8));
-            }
-            catch { }
-
-            // --- Animation Setup ---
-            form.Opacity = 0; // Starte komplett unsichtbar
-            var fadeTimer = new Timer();
-            fadeTimer.Interval = 15; // Geschwindigkeit (kleiner = schneller)
-            fadeTimer.Tick += (s, e) =>
-            {
-                if (form.Opacity < 1.0)
-                {
-                    form.Opacity += 0.05; // Fade Schritt (je kleiner, desto smoother)
-                }
-                else
-                {
-                    fadeTimer.Stop();
-                    fadeTimer.Dispose();
-                }
-            };
-
-            // Wenn das Form geladen ist → Animation starten
-            form.Load += (s, e) => fadeTimer.Start();
-        }
-
-
         #endregion
 
         #region FormElements
@@ -144,6 +99,7 @@ namespace PCessentials.assets
         /// <param name="listBox"></param>
         public static void StyleModernListBox(ListBox listBox)
         {
+            if (listBox == null) return;
             // Grund-Einstellungen
             listBox.BorderStyle = BorderStyle.None;
             listBox.DrawMode = DrawMode.OwnerDrawFixed;
@@ -218,6 +174,8 @@ namespace PCessentials.assets
         /// </summary>
         public static void StyleModernTextBox(TextBox textBox)
         {
+            if (textBox == null) return;
+
             textBox.BorderStyle = BorderStyle.FixedSingle;
             textBox.BackColor = IsDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
             textBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
@@ -229,6 +187,8 @@ namespace PCessentials.assets
         /// </summary>
         public static void StyleModernButton(Button button)
         {
+            if (button == null) return;
+
             button.FlatStyle = FlatStyle.Flat;
             button.FlatAppearance.BorderSize = 1;
             button.FlatAppearance.BorderColor = IsDarkMode ? Color.DimGray : Color.LightGray;
@@ -243,15 +203,17 @@ namespace PCessentials.assets
         /// </summary>
         public static void StyleModernRadioButton(RadioButton radioButton)
         {
+            if (radioButton == null) return;
+
             // FlatStyle für modernen Look
             radioButton.FlatStyle = FlatStyle.Flat;
             radioButton.BackColor = Color.Transparent;
 
             // Setzt die Textfarbe basierend auf dem DarkMode Status
-            radioButton.ForeColor = IsDarkMode ? Color.Crimson : Color.Black;
+            radioButton.ForeColor = IsDarkMode ? Color.LightSkyBlue : Color.Black;
 
             // Setzt den Font für den RadioButton
-            radioButton.Font = new Font("Segoe UI", 10);
+            radioButton.Font = new Font("Segoe UI", 11);
 
             // Färbt nur den Kreis je nach Zustand
             radioButton.FlatAppearance.BorderSize = 2; // Dicke des Randes
@@ -271,6 +233,8 @@ namespace PCessentials.assets
         /// </summary>
         public static void StyleModernCheckBox(CheckBox checkBox)
         {
+            if (checkBox == null) return;
+
             checkBox.FlatStyle = FlatStyle.Flat;
             checkBox.BackColor = Color.Transparent;
             checkBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
@@ -282,6 +246,8 @@ namespace PCessentials.assets
         /// </summary>
         public static void StyleModernPanel(Panel panel)
         {
+            if (panel == null) return;
+
             panel.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.WhiteSmoke;
             panel.BorderStyle = BorderStyle.FixedSingle;
         }
@@ -292,6 +258,8 @@ namespace PCessentials.assets
         /// </summary>
         public static void StyleModernLabel(Label label, bool isHeadline = false)
         {
+            if (label == null) return;
+
             label.BackColor = Color.Transparent;
             label.ForeColor = IsDarkMode ? Color.White : Color.Black;
 
@@ -310,6 +278,7 @@ namespace PCessentials.assets
         /// <param name="groupBox"></param>
         public static void StyleModernGroupBox(GroupBox groupBox)
         {
+            if (groupBox == null) return;
 
             groupBox.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
             groupBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
@@ -322,6 +291,8 @@ namespace PCessentials.assets
         /// <param name="comboBox"></param>
         public static void StyleModernComboBox(ComboBox comboBox)
         {
+            if (comboBox == null) return;
+
             comboBox.FlatStyle = FlatStyle.Flat;
             comboBox.BackColor = IsDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
             comboBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
@@ -336,6 +307,7 @@ namespace PCessentials.assets
         /// <param name="trackBar"></param>
         public static void StyleModernTrackBar(TrackBar trackBar)
         {
+            if (trackBar == null) return;
 
             trackBar.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
             trackBar.TickStyle = TickStyle.None; // modernes flaches Aussehen ohne Ticks
@@ -347,6 +319,7 @@ namespace PCessentials.assets
         /// <param name="progressBar"></param>
         public static void StyleModernProgressBar(ProgressBar progressBar)
         {
+            if (progressBar == null) return;
 
             progressBar.BackColor = IsDarkMode ? Color.FromArgb(60, 60, 60) : Color.LightGray;
             progressBar.ForeColor = IsDarkMode ? Color.Teal : Color.DeepSkyBlue;

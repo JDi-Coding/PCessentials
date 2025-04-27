@@ -1,4 +1,5 @@
 ﻿using DownloadCleanerV2.assets;
+using PCessentials.assets;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,21 @@ namespace PCessentials.Forms
         {
             InitializeComponent();
             cleaner = new Cleaner();
+            config.DarkModeChanged += StyleDownloadCleaner;
+        }
+
+        private void StyleDownloadCleaner()
+        {
+            
+            UIHelper.StyleModernButton(btn_StartCleaning);
+            UIHelper.StyleModernCheckBox(cbox_StartUp);
+            UIHelper.StyleModernLabel(label1);
+            UIHelper.StyleModernLabel(lbl_StatusMsg);
+            UIHelper.StyleModernLabel(lbl_DC_Header, true);
+            UIHelper.StyleModernGroupBox(gBox_DC_cleaner);
+
+
+            UIHelper.StyleModernChildForm(this);
         }
 
         private void Form1_Load(object sender, EventArgs e)

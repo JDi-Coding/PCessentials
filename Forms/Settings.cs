@@ -23,6 +23,8 @@ namespace PCessentials.Forms
         public Settings()
         {
             InitializeComponent();
+            config.DarkModeChanged += StyleSettings;
+            StyleSettings();
         }
 
         private void lbl_S_Header_Click(object sender, EventArgs e)
@@ -41,10 +43,12 @@ namespace PCessentials.Forms
 
         private void StyleSettings()
         {
+            UIHelper.StyleModernChildForm(this);
             UIHelper.StyleModernLabel(lbl_S_Header, true);
             UIHelper.StyleModernPanel(pnl_S_Left);
             UIHelper.StyleModernGroupBox(gBox_S_lang);
             UIHelper.StyleModernGroupBox(gBox_S_Theme);
+            UIHelper.StyleModernGroupBox(gBox_S_Forms);
             UIHelper.StyleModernRadioButton(rBtn_S_lang_de);
             UIHelper.StyleModernRadioButton(rBtn_S_lang_eng);
             UIHelper.StyleModernRadioButton(rbtn_S_ThemeDark);
@@ -56,9 +60,7 @@ namespace PCessentials.Forms
         {
             if (rbtn_S_ThemeDark.Checked)
             {
-                Properties.Settings.Default.DarkModeEnabled = true;
-                Properties.Settings.Default.Save();
-                this.StyleSettings();
+                config.SetDarkMode(true);
             }
         }
 
@@ -66,10 +68,9 @@ namespace PCessentials.Forms
         {
             if (rbtn_S_ThemeLight.Checked)
             {
-                Properties.Settings.Default.DarkModeEnabled = false;
-                Properties.Settings.Default.Save();
-                this.StyleSettings();
+                config.SetDarkMode(false);
             }
         }
+
     }
 }

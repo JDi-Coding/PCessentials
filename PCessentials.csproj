@@ -193,6 +193,9 @@
     <Compile Include="Forms\WebDownloader.Designer.cs">
       <DependentUpon>WebDownloader.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\DownloadCleaner.resx">
+      <DependentUpon>DownloadCleaner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FinanceHelper.resx">
       <DependentUpon>FinanceHelper.cs</DependentUpon>
     </EmbeddedResource>
