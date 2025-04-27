@@ -15,14 +15,13 @@ namespace PCessentials.assets.MainForm
     {
         private readonly Dictionary<string, Func<Form>> formFactories;
         private readonly HashSet<string> excludeNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-        {
-            "MainForm",
-        };
-
+    {
+        "MainForm", // Exclude MainForm from dynamic form list
+    };
 
         public FormService()
         {
-            // Alle Unterklassen von Form im Namespace PCessentials.Forms automatisch finden
+            // Automatically find all subclasses of Form inside the namespace PCessentials.Forms
             formFactories = Assembly.GetExecutingAssembly()
                 .GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(Form))
@@ -35,18 +34,18 @@ namespace PCessentials.assets.MainForm
         }
 
         /// <summary>
-        /// Gibt die Namen aller gefundenen Forms zurück (alphabetisch sortiert).
+        /// Returns the names of all found forms (sorted alphabetically).
         /// </summary>
         public IEnumerable<string> getFormNames() => formFactories.Keys.OrderBy(k => k);
 
         /// <summary>
-        /// Erzeugt ein neues Form-Objekt anhand des Form-Namens.
+        /// Creates a new form instance based on the form name.
         /// </summary>
         public Form createForm(string formName)
         {
             if (formFactories.TryGetValue(formName, out var factory))
                 return factory();
-            throw new ArgumentException($"Form '{formName}' nicht gefunden.", nameof(formName));
+            throw new ArgumentException($"Form '{formName}' not found.", nameof(formName));
         }
     }
 }

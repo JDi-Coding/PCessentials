@@ -36,9 +36,17 @@
             this.pnl_MF_Content = new System.Windows.Forms.Panel();
             this.pnl_MF_Top = new System.Windows.Forms.Panel();
             this.tt_MF = new System.Windows.Forms.ToolTip(this.components);
+            this.btn_MF_Minimize = new System.Windows.Forms.Button();
+            this.pnl_MF_Bottom = new System.Windows.Forms.Panel();
+            this.pnl_MF_TopLeft = new System.Windows.Forms.Panel();
+            this.btn_MF_Close = new System.Windows.Forms.Button();
             this.pnl_MF_SidebarTopLogo = new System.Windows.Forms.Panel();
+            this.btn_MF_WindowState = new System.Windows.Forms.Button();
             this.pnl_MF_Sidebar.SuspendLayout();
             this.pnl_MF_FormList.SuspendLayout();
+            this.pnl_MF_Content.SuspendLayout();
+            this.pnl_MF_Top.SuspendLayout();
+            this.pnl_MF_TopLeft.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_MF_Sidebar
@@ -89,6 +97,7 @@
             // 
             this.pnl_MF_Content.BackColor = System.Drawing.Color.DimGray;
             this.pnl_MF_Content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_MF_Content.Controls.Add(this.pnl_MF_Bottom);
             this.pnl_MF_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_MF_Content.Location = new System.Drawing.Point(345, 74);
             this.pnl_MF_Content.Margin = new System.Windows.Forms.Padding(0);
@@ -100,6 +109,7 @@
             // 
             this.pnl_MF_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnl_MF_Top.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnl_MF_Top.Controls.Add(this.pnl_MF_TopLeft);
             this.pnl_MF_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_MF_Top.Location = new System.Drawing.Point(345, 0);
             this.pnl_MF_Top.Name = "pnl_MF_Top";
@@ -109,6 +119,64 @@
             // tt_MF
             // 
             this.tt_MF.ToolTipTitle = "-";
+            // 
+            // btn_MF_Minimize
+            // 
+            this.btn_MF_Minimize.BackgroundImage = global::PCessentials.Properties.Resources.Minimize;
+            this.btn_MF_Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_MF_Minimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_MF_Minimize.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_MF_Minimize.FlatAppearance.BorderSize = 0;
+            this.btn_MF_Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_MF_Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btn_MF_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_MF_Minimize.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_MF_Minimize.Location = new System.Drawing.Point(177, 12);
+            this.btn_MF_Minimize.Name = "btn_MF_Minimize";
+            this.btn_MF_Minimize.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_MF_Minimize.Size = new System.Drawing.Size(26, 30);
+            this.btn_MF_Minimize.TabIndex = 1;
+            this.btn_MF_Minimize.UseVisualStyleBackColor = true;
+            this.btn_MF_Minimize.Click += new System.EventHandler(this.btn_MF_Minimize_Click);
+            // 
+            // pnl_MF_Bottom
+            // 
+            this.pnl_MF_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnl_MF_Bottom.Location = new System.Drawing.Point(0, 765);
+            this.pnl_MF_Bottom.Name = "pnl_MF_Bottom";
+            this.pnl_MF_Bottom.Size = new System.Drawing.Size(1457, 20);
+            this.pnl_MF_Bottom.TabIndex = 0;
+            // 
+            // pnl_MF_TopLeft
+            // 
+            this.pnl_MF_TopLeft.Controls.Add(this.btn_MF_WindowState);
+            this.pnl_MF_TopLeft.Controls.Add(this.btn_MF_Minimize);
+            this.pnl_MF_TopLeft.Controls.Add(this.btn_MF_Close);
+            this.pnl_MF_TopLeft.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnl_MF_TopLeft.Location = new System.Drawing.Point(1180, 0);
+            this.pnl_MF_TopLeft.Name = "pnl_MF_TopLeft";
+            this.pnl_MF_TopLeft.Size = new System.Drawing.Size(279, 74);
+            this.pnl_MF_TopLeft.TabIndex = 1;
+            // 
+            // btn_MF_Close
+            // 
+            this.btn_MF_Close.BackgroundImage = global::PCessentials.Properties.Resources.Close;
+            this.btn_MF_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_MF_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_MF_Close.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_MF_Close.FlatAppearance.BorderSize = 0;
+            this.btn_MF_Close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_MF_Close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btn_MF_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_MF_Close.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_MF_Close.ForeColor = System.Drawing.Color.Black;
+            this.btn_MF_Close.Location = new System.Drawing.Point(241, 12);
+            this.btn_MF_Close.Name = "btn_MF_Close";
+            this.btn_MF_Close.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_MF_Close.Size = new System.Drawing.Size(26, 30);
+            this.btn_MF_Close.TabIndex = 0;
+            this.btn_MF_Close.UseVisualStyleBackColor = true;
+            this.btn_MF_Close.Click += new System.EventHandler(this.btn_MF_Close_Click);
             // 
             // pnl_MF_SidebarTopLogo
             // 
@@ -121,6 +189,25 @@
             this.pnl_MF_SidebarTopLogo.Size = new System.Drawing.Size(343, 73);
             this.pnl_MF_SidebarTopLogo.TabIndex = 1;
             // 
+            // btn_MF_WindowState
+            // 
+            this.btn_MF_WindowState.BackgroundImage = global::PCessentials.Properties.Resources.FullScreen;
+            this.btn_MF_WindowState.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_MF_WindowState.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_MF_WindowState.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_MF_WindowState.FlatAppearance.BorderSize = 0;
+            this.btn_MF_WindowState.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_MF_WindowState.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btn_MF_WindowState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_MF_WindowState.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_MF_WindowState.Location = new System.Drawing.Point(209, 12);
+            this.btn_MF_WindowState.Name = "btn_MF_WindowState";
+            this.btn_MF_WindowState.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_MF_WindowState.Size = new System.Drawing.Size(26, 30);
+            this.btn_MF_WindowState.TabIndex = 2;
+            this.btn_MF_WindowState.UseVisualStyleBackColor = true;
+            this.btn_MF_WindowState.Click += new System.EventHandler(this.btn_MF_WindowState_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,11 +217,15 @@
             this.Controls.Add(this.pnl_MF_Content);
             this.Controls.Add(this.pnl_MF_Top);
             this.Controls.Add(this.pnl_MF_Sidebar);
-            this.MinimumSize = new System.Drawing.Size(1200, 800);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(800, 800);
             this.Name = "MainForm";
             this.Text = "PCessentials";
             this.pnl_MF_Sidebar.ResumeLayout(false);
             this.pnl_MF_FormList.ResumeLayout(false);
+            this.pnl_MF_Content.ResumeLayout(false);
+            this.pnl_MF_Top.ResumeLayout(false);
+            this.pnl_MF_TopLeft.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -149,5 +240,10 @@
         private System.Windows.Forms.Panel pnl_MF_SidebarTopLogo;
         private System.Windows.Forms.ListBox listBoxForms;
         private System.Windows.Forms.Panel pnl_MF_FormList;
+        private System.Windows.Forms.Button btn_MF_Minimize;
+        private System.Windows.Forms.Button btn_MF_Close;
+        private System.Windows.Forms.Panel pnl_MF_Bottom;
+        private System.Windows.Forms.Panel pnl_MF_TopLeft;
+        private System.Windows.Forms.Button btn_MF_WindowState;
     }
 }

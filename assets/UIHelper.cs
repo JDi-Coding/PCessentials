@@ -1,31 +1,170 @@
-﻿// UIHelper.cs
-using System;
+﻿using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace PCessentials.assets
 {
     /// <summary>
-    /// Hilfsklasse für moderne ListBox-Styling.
+    /// Class for Styling UIElements.
     /// </summary>
     public static class UIHelper
     {
-        public static void styleModernListBox(ListBox listBox)
+
+        // Central property to check for DarkMode
+        private static bool IsDarkMode => Properties.Settings.Default.DarkModeEnabled;
+
+        #region Forms
+        public static void StyleModernMainForm(Form form, Color? borderColor = null)
+        {
+            // Grund-Layout
+            form.BackColor = IsDarkMode ? Color.FromArgb(30, 30, 30) : Color.WhiteSmoke;
+            form.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            form.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MaximizeBox = true;
+            form.MinimizeBox = true;
+            form.AutoScaleMode = AutoScaleMode.Font;
+            form.Padding = new Padding(1);
+            Color border = borderColor ?? (IsDarkMode ? Color.DimGray : Color.LightGray);
+
+            // Custom Border
+            form.Paint += (sender, e) =>
+            {
+                ControlPaint.DrawBorder(e.Graphics, form.ClientRectangle,
+                                        border, 1, ButtonBorderStyle.Solid,
+                                        border, 1, ButtonBorderStyle.Solid,
+                                        border, 1, ButtonBorderStyle.Solid,
+                                        border, 1, ButtonBorderStyle.Solid);
+            };
+
+            try
+            {
+                form.Region = System.Drawing.Region.FromHrgn(
+                    CreateRoundRectRgn(0, 0, form.Width, form.Height, 10, 10));
+            }
+            catch { /* if W<11 Ignore */ }
+
+            // Event-Handler SizeChanges
+            form.Resize += (sender, e) =>
+            {
+                try
+                {
+                    form.Region = System.Drawing.Region.FromHrgn(
+                        CreateRoundRectRgn(0, 0, form.Width, form.Height, 10, 10));
+                }
+                catch { /* Ignorieren */ }
+                form.Invalidate();
+            };
+
+            // activate Form-Styles over the Form- Instance
+            if (form is Forms.MainForm mainForm)
+            {
+                mainForm.EnableFormStyles();
+            }
+        }
+
+        /// <summary>
+        /// Styles a child form to have a modern look.
+        /// </summary>
+        /// <param name="form"></param>
+        public static void StyleModernChildForm(Form form)
+        {
+
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            form.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
+            form.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            form.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+
+            // Optional schöne abgerundete Ecken innen
+            try
+            {
+                form.Region = System.Drawing.Region.FromHrgn(
+                    CreateRoundRectRgn(0, 0, form.Width, form.Height, 8, 8));
+            }
+            catch { /* Sicherheits-try-catch */ }
+        }
+
+        /// <summary>
+        /// Styles a child form to have a modern look with a fade-in effect.
+        /// </summary>
+        /// <param name="form"></param>
+        public static void StyleModernChildFormWithFade(Form form)
+        {
+
+            // Basis-Styles (gleich wie bisher)
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            form.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
+            form.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            form.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+
+            // Runde Ecken (optional)
+            try
+            {
+                form.Region = System.Drawing.Region.FromHrgn(
+                    CreateRoundRectRgn(0, 0, form.Width, form.Height, 8, 8));
+            }
+            catch { }
+
+            // --- Animation Setup ---
+            form.Opacity = 0; // Starte komplett unsichtbar
+            var fadeTimer = new Timer();
+            fadeTimer.Interval = 15; // Geschwindigkeit (kleiner = schneller)
+            fadeTimer.Tick += (s, e) =>
+            {
+                if (form.Opacity < 1.0)
+                {
+                    form.Opacity += 0.05; // Fade Schritt (je kleiner, desto smoother)
+                }
+                else
+                {
+                    fadeTimer.Stop();
+                    fadeTimer.Dispose();
+                }
+            };
+
+            // Wenn das Form geladen ist → Animation starten
+            form.Load += (s, e) => fadeTimer.Start();
+        }
+
+
+        #endregion
+
+        #region FormElements
+
+        /// <summary>
+        /// Styles a ListBox to have a modern look.
+        /// </summary>
+        /// <param name="listBox"></param>
+        public static void StyleModernListBox(ListBox listBox)
         {
             // Grund-Einstellungen
             listBox.BorderStyle = BorderStyle.None;
             listBox.DrawMode = DrawMode.OwnerDrawFixed;
             listBox.ItemHeight = 30;
             listBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-            listBox.BackColor = Color.White;
-            listBox.ForeColor = Color.Black;  // Default-Farbe für den Normalzustand
+
+            // Farben je nach Light/Dark Mode
+            bool isDarkMode = Properties.Settings.Default.DarkModeEnabled; // <-- direkt hier abgefragt
+
+            listBox.BackColor = isDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
+            listBox.ForeColor = isDarkMode ? Color.White : Color.Black;
 
             int hoverIndex = -1;
-            Color selectionColor = Color.FromArgb(220, 220, 220);
-            Color hoverColor = Color.FromArgb(240, 240, 240);
-            Color normalText = Color.Black;
-            Color selectedText = Color.Black; // oder DarkBlue o.ä., je nach Geschmack
 
+            // Farbschema definieren
+            Color selectionColor = isDarkMode ? Color.FromArgb(70, 70, 80) : Color.FromArgb(220, 220, 220);
+            Color hoverColor = isDarkMode ? Color.FromArgb(60, 60, 70) : Color.FromArgb(240, 240, 240);
+            Color normalTextColor = isDarkMode ? Color.White : Color.Black;
+            Color selectedTextColor = isDarkMode ? Color.White : Color.Black;
+
+            // Zeichen-Logik
             listBox.DrawItem += (sender, e) =>
             {
                 if (e.Index < 0) return;
@@ -34,26 +173,26 @@ namespace PCessentials.assets
                 bool isHover = e.Index == hoverIndex;
 
                 // 1) Hintergrund zeichnen
-                Color bg = isSelected
+                Color backgroundColor = isSelected
                     ? selectionColor
                     : isHover
                         ? hoverColor
                         : listBox.BackColor;
 
-                using (var backBrush = new SolidBrush(bg))
+                using (var backBrush = new SolidBrush(backgroundColor))
                     e.Graphics.FillRectangle(backBrush, e.Bounds);
 
                 // 2) Text zeichnen
-                Color txtColor = isSelected ? selectedText : normalText;
+                Color textColor = isSelected ? selectedTextColor : normalTextColor;
                 TextRenderer.DrawText(
                     e.Graphics,
                     listBox.Items[e.Index].ToString(),
                     listBox.Font,
                     e.Bounds,
-                    txtColor,
+                    textColor,
                     TextFormatFlags.VerticalCenter | TextFormatFlags.Left);
 
-                // 3) Optional: Fokusrechteck
+                // 3) Fokus-Rechteck
                 e.DrawFocusRectangle();
             };
 
@@ -74,5 +213,165 @@ namespace PCessentials.assets
             };
         }
 
+        /// <summary>
+        /// Applies a modern style to a TextBox.
+        /// </summary>
+        public static void StyleModernTextBox(TextBox textBox)
+        {
+            textBox.BorderStyle = BorderStyle.FixedSingle;
+            textBox.BackColor = IsDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            textBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            textBox.Font = new Font("Segoe UI", 10);
+        }
+
+        /// <summary>
+        /// Applies a modern style to a Button.
+        /// </summary>
+        public static void StyleModernButton(Button button)
+        {
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 1;
+            button.FlatAppearance.BorderColor = IsDarkMode ? Color.DimGray : Color.LightGray;
+            button.BackColor = IsDarkMode ? Color.FromArgb(50, 50, 50) : Color.WhiteSmoke;
+            button.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            button.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            button.Cursor = Cursors.Hand;
+        }
+
+        /// <summary>
+        /// Applies a modern style to a RadioButton.
+        /// </summary>
+        public static void StyleModernRadioButton(RadioButton radioButton)
+        {
+            // FlatStyle für modernen Look
+            radioButton.FlatStyle = FlatStyle.Flat;
+            radioButton.BackColor = Color.Transparent;
+
+            // Setzt die Textfarbe basierend auf dem DarkMode Status
+            radioButton.ForeColor = IsDarkMode ? Color.Crimson : Color.Black;
+
+            // Setzt den Font für den RadioButton
+            radioButton.Font = new Font("Segoe UI", 10);
+
+            // Färbt nur den Kreis je nach Zustand
+            radioButton.FlatAppearance.BorderSize = 2; // Dicke des Randes
+
+            radioButton.CheckedChanged += (sender, e) =>
+            {
+                if (radioButton.Checked)
+                {
+                    radioButton.FlatAppearance.BorderColor = IsDarkMode ? Color.DarkBlue : Color.DeepSkyBlue;
+                }
+            };
+
+        }
+
+        /// <summary>
+        /// Applies a modern style to a CheckBox.
+        /// </summary>
+        public static void StyleModernCheckBox(CheckBox checkBox)
+        {
+            checkBox.FlatStyle = FlatStyle.Flat;
+            checkBox.BackColor = Color.Transparent;
+            checkBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            checkBox.Font = new Font("Segoe UI", 10);
+        }
+
+        /// <summary>
+        /// Applies a modern style to a Panel.
+        /// </summary>
+        public static void StyleModernPanel(Panel panel)
+        {
+            panel.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.WhiteSmoke;
+            panel.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        /// <summary>
+        /// Applies a modern style to a Label.
+        /// Can optionally be styled as a headline.
+        /// </summary>
+        public static void StyleModernLabel(Label label, bool isHeadline = false)
+        {
+            label.BackColor = Color.Transparent;
+            label.ForeColor = IsDarkMode ? Color.White : Color.Black;
+
+            if (isHeadline)
+            {
+                label.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+            }
+            else
+            {
+                label.Font = new Font("Segoe UI", 10);
+            }
+        }
+        /// <summary>
+        /// Applies a modern style to a GroupBox.
+        /// </summary>
+        /// <param name="groupBox"></param>
+        public static void StyleModernGroupBox(GroupBox groupBox)
+        {
+
+            groupBox.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
+            groupBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            groupBox.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+        }
+
+        /// <summary>
+        /// Applies a modern style to a ComboBox.
+        /// </summary>
+        /// <param name="comboBox"></param>
+        public static void StyleModernComboBox(ComboBox comboBox)
+        {
+            comboBox.FlatStyle = FlatStyle.Flat;
+            comboBox.BackColor = IsDarkMode ? Color.FromArgb(30, 30, 30) : Color.White;
+            comboBox.ForeColor = IsDarkMode ? Color.White : Color.Black;
+            comboBox.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+
+            comboBox.DropDownStyle = ComboBoxStyle.DropDownList; // optional: verhindert Eingaben
+        }
+
+        /// <summary>
+        /// Applies a modern style to a TrackBar.
+        /// </summary>
+        /// <param name="trackBar"></param>
+        public static void StyleModernTrackBar(TrackBar trackBar)
+        {
+
+            trackBar.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
+            trackBar.TickStyle = TickStyle.None; // modernes flaches Aussehen ohne Ticks
+        }
+
+        /// <summary>
+        /// Applies a modern style to a ProgressBar.
+        /// </summary>
+        /// <param name="progressBar"></param>
+        public static void StyleModernProgressBar(ProgressBar progressBar)
+        {
+
+            progressBar.BackColor = IsDarkMode ? Color.FromArgb(60, 60, 60) : Color.LightGray;
+            progressBar.ForeColor = IsDarkMode ? Color.Teal : Color.DeepSkyBlue;
+            progressBar.Style = ProgressBarStyle.Continuous;
+        }
+
+        #endregion
+
+        #region HelperM
+        /// <summary>
+        /// Importiert die CreateRoundRectRgn-Funktion aus der gdi32.dll.
+        /// Diese Funktion erstellt ein Rechteck mit abgerundeten Ecken.
+        /// </summary>
+        /// <param name="nLeftRect">Die x-Koordinate der linken oberen Ecke des Rechtecks.</param>
+        /// <param name="nTopRect">Die y-Koordinate der linken oberen Ecke des Rechtecks.</param>
+        /// <param name="nRightRect">Die x-Koordinate der rechten unteren Ecke des Rechtecks.</param>
+        /// <param name="nBottomRect">Die y-Koordinate der rechten unteren Ecke des Rechtecks.</param>
+        /// <param name="nWidthEllipse">Die Breite der Ellipse, die die Ecken abrundet.</param>
+        /// <param name="nHeightEllipse">Die Höhe der Ellipse, die die Ecken abrundet.</param>
+        /// <returns>Ein Handle (IntPtr) auf die erstellte Region.</returns>
+        [DllImport("gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(
+        int nLeftRect, int nTopRect, int nRightRect, int nBottomRect,
+        int nWidthEllipse, int nHeightEllipse);
+
+        #endregion
     }
 }
