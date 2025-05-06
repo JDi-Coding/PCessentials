@@ -49,16 +49,16 @@
             // cmbPrinters
             // 
             this.cmbPrinters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPrinters.Location = new System.Drawing.Point(12, 54);
+            this.cmbPrinters.Location = new System.Drawing.Point(12, 45);
             this.cmbPrinters.Name = "cmbPrinters";
             this.cmbPrinters.Size = new System.Drawing.Size(360, 21);
             this.cmbPrinters.TabIndex = 0;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(12, 92);
+            this.btnBrowse.Location = new System.Drawing.Point(12, 81);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(120, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(127, 35);
             this.btnBrowse.TabIndex = 1;
             this.btnBrowse.Text = "PDF(s) auswählen";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(12, 402);
+            this.btnStart.Location = new System.Drawing.Point(12, 511);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(209, 36);
             this.btnStart.TabIndex = 9;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -76,9 +76,9 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(100, 402);
+            this.btnStop.Location = new System.Drawing.Point(442, 511);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.Size = new System.Drawing.Size(209, 36);
             this.btnStop.TabIndex = 10;
             this.btnStop.Text = "Stopp";
             this.btnStop.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@
             this.lvJobs.FullRowSelect = true;
             this.lvJobs.GridLines = true;
             this.lvJobs.HideSelection = false;
-            this.lvJobs.Location = new System.Drawing.Point(12, 182);
+            this.lvJobs.Location = new System.Drawing.Point(83, 218);
             this.lvJobs.Name = "lvJobs";
-            this.lvJobs.Size = new System.Drawing.Size(360, 200);
+            this.lvJobs.Size = new System.Drawing.Size(473, 200);
             this.lvJobs.TabIndex = 8;
             this.lvJobs.UseCompatibleStateImageBehavior = false;
             this.lvJobs.View = System.Windows.Forms.View.Details;
@@ -112,7 +112,7 @@
             // chkDuplex
             // 
             this.chkDuplex.AutoSize = true;
-            this.chkDuplex.Location = new System.Drawing.Point(12, 132);
+            this.chkDuplex.Location = new System.Drawing.Point(16, 136);
             this.chkDuplex.Name = "chkDuplex";
             this.chkDuplex.Size = new System.Drawing.Size(71, 17);
             this.chkDuplex.TabIndex = 2;
@@ -122,7 +122,7 @@
             // chkGrayscale
             // 
             this.chkGrayscale.AutoSize = true;
-            this.chkGrayscale.Location = new System.Drawing.Point(12, 155);
+            this.chkGrayscale.Location = new System.Drawing.Point(15, 176);
             this.chkGrayscale.Name = "chkGrayscale";
             this.chkGrayscale.Size = new System.Drawing.Size(76, 17);
             this.chkGrayscale.TabIndex = 3;
@@ -132,7 +132,7 @@
             // chkLandscape
             // 
             this.chkLandscape.AutoSize = true;
-            this.chkLandscape.Location = new System.Drawing.Point(120, 132);
+            this.chkLandscape.Location = new System.Drawing.Point(162, 136);
             this.chkLandscape.Name = "chkLandscape";
             this.chkLandscape.Size = new System.Drawing.Size(78, 17);
             this.chkLandscape.TabIndex = 4;
@@ -142,7 +142,7 @@
             // chkA4
             // 
             this.chkA4.AutoSize = true;
-            this.chkA4.Location = new System.Drawing.Point(120, 155);
+            this.chkA4.Location = new System.Drawing.Point(162, 176);
             this.chkA4.Name = "chkA4";
             this.chkA4.Size = new System.Drawing.Size(39, 17);
             this.chkA4.TabIndex = 5;
@@ -152,7 +152,7 @@
             // lblCopies
             // 
             this.lblCopies.AutoSize = true;
-            this.lblCopies.Location = new System.Drawing.Point(230, 133);
+            this.lblCopies.Location = new System.Drawing.Point(363, 136);
             this.lblCopies.Name = "lblCopies";
             this.lblCopies.Size = new System.Drawing.Size(43, 13);
             this.lblCopies.TabIndex = 6;
@@ -160,7 +160,7 @@
             // 
             // numCopies
             // 
-            this.numCopies.Location = new System.Drawing.Point(280, 131);
+            this.numCopies.Location = new System.Drawing.Point(440, 133);
             this.numCopies.Name = "numCopies";
             this.numCopies.Size = new System.Drawing.Size(50, 20);
             this.numCopies.TabIndex = 7;
@@ -176,7 +176,7 @@
             // 
             // PrintManager
             // 
-            this.ClientSize = new System.Drawing.Size(384, 475);
+            this.ClientSize = new System.Drawing.Size(663, 559);
             this.Controls.Add(this.lbl_PM_Header);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);

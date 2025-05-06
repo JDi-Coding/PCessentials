@@ -71,7 +71,6 @@ namespace PCessentials.assets
         /// <param name="form"></param>
         public static void StyleModernChildForm(Form form)
         {
-
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
@@ -79,14 +78,6 @@ namespace PCessentials.assets
             form.BackColor = IsDarkMode ? Color.FromArgb(45, 45, 48) : Color.White;
             form.ForeColor = IsDarkMode ? Color.White : Color.Black;
             form.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-
-            // Optional schöne abgerundete Ecken innen
-            try
-            {
-                form.Region = System.Drawing.Region.FromHrgn(
-                    CreateRoundRectRgn(0, 0, form.Width, form.Height, 8, 8));
-            }
-            catch { /* Sicherheits-try-catch */ }
         }
 
         #endregion

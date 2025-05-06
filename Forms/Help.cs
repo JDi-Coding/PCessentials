@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCessentials.assets;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace PCessentials.Forms
         public Help()
         {
             InitializeComponent();
+            config.DarkModeChanged += StyleHelp;
+            this.FormClosed += Help_FormClosed;
+        }
+
+        private void StyleHelp()
+        {
+
+        }
+
+        private void Help_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            config.DarkModeChanged -= StyleHelp;
+        }
+
+        private void Help_Load(object sender, EventArgs e)
+        {
+            StyleHelp();
         }
     }
 }

@@ -36,12 +36,14 @@
             this.rbtn_S_ThemeDark = new System.Windows.Forms.RadioButton();
             this.rbtn_S_ThemeLight = new System.Windows.Forms.RadioButton();
             this.pnl_S_Left = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.gBox_S_Forms = new System.Windows.Forms.GroupBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.pnl_S_Content = new System.Windows.Forms.Panel();
             this.gBox_S_lang.SuspendLayout();
             this.gBox_S_Theme.SuspendLayout();
             this.pnl_S_Left.SuspendLayout();
             this.gBox_S_Forms.SuspendLayout();
+            this.pnl_S_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_S_Header
@@ -82,28 +84,30 @@
             // 
             // gBox_S_lang
             // 
-            this.gBox_S_lang.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.gBox_S_lang.BackColor = System.Drawing.Color.Transparent;
             this.gBox_S_lang.Controls.Add(this.rBtn_S_lang_de);
             this.gBox_S_lang.Controls.Add(this.rBtn_S_lang_eng);
             this.gBox_S_lang.Dock = System.Windows.Forms.DockStyle.Top;
             this.gBox_S_lang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gBox_S_lang.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBox_S_lang.Location = new System.Drawing.Point(0, 41);
+            this.gBox_S_lang.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.gBox_S_lang.Name = "gBox_S_lang";
-            this.gBox_S_lang.Size = new System.Drawing.Size(246, 59);
+            this.gBox_S_lang.Size = new System.Drawing.Size(265, 59);
             this.gBox_S_lang.TabIndex = 4;
             this.gBox_S_lang.TabStop = false;
             this.gBox_S_lang.Text = "Sprache:";
             // 
             // gBox_S_Theme
             // 
-            this.gBox_S_Theme.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.gBox_S_Theme.BackColor = System.Drawing.Color.Transparent;
             this.gBox_S_Theme.Controls.Add(this.rbtn_S_ThemeDark);
             this.gBox_S_Theme.Controls.Add(this.rbtn_S_ThemeLight);
             this.gBox_S_Theme.Dock = System.Windows.Forms.DockStyle.Top;
             this.gBox_S_Theme.Location = new System.Drawing.Point(0, 100);
+            this.gBox_S_Theme.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.gBox_S_Theme.Name = "gBox_S_Theme";
-            this.gBox_S_Theme.Size = new System.Drawing.Size(246, 70);
+            this.gBox_S_Theme.Size = new System.Drawing.Size(265, 70);
             this.gBox_S_Theme.TabIndex = 5;
             this.gBox_S_Theme.TabStop = false;
             this.gBox_S_Theme.Text = "Theme";
@@ -134,15 +138,26 @@
             // 
             // pnl_S_Left
             // 
-            this.pnl_S_Left.Controls.Add(this.gBox_S_Forms);
             this.pnl_S_Left.Controls.Add(this.gBox_S_Theme);
             this.pnl_S_Left.Controls.Add(this.gBox_S_lang);
             this.pnl_S_Left.Controls.Add(this.lbl_S_Header);
             this.pnl_S_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_S_Left.Location = new System.Drawing.Point(0, 0);
             this.pnl_S_Left.Name = "pnl_S_Left";
-            this.pnl_S_Left.Size = new System.Drawing.Size(246, 483);
+            this.pnl_S_Left.Size = new System.Drawing.Size(265, 483);
             this.pnl_S_Left.TabIndex = 6;
+            // 
+            // gBox_S_Forms
+            // 
+            this.gBox_S_Forms.BackColor = System.Drawing.Color.Transparent;
+            this.gBox_S_Forms.Controls.Add(this.checkedListBox1);
+            this.gBox_S_Forms.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gBox_S_Forms.Location = new System.Drawing.Point(0, 0);
+            this.gBox_S_Forms.Name = "gBox_S_Forms";
+            this.gBox_S_Forms.Size = new System.Drawing.Size(535, 188);
+            this.gBox_S_Forms.TabIndex = 6;
+            this.gBox_S_Forms.TabStop = false;
+            this.gBox_S_Forms.Text = "Forms";
             // 
             // checkedListBox1
             // 
@@ -150,26 +165,24 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(3, 16);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(240, 154);
+            this.checkedListBox1.Size = new System.Drawing.Size(529, 154);
             this.checkedListBox1.TabIndex = 7;
             // 
-            // gBox_S_Forms
+            // pnl_S_Content
             // 
-            this.gBox_S_Forms.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.gBox_S_Forms.Controls.Add(this.checkedListBox1);
-            this.gBox_S_Forms.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gBox_S_Forms.Location = new System.Drawing.Point(0, 170);
-            this.gBox_S_Forms.Name = "gBox_S_Forms";
-            this.gBox_S_Forms.Size = new System.Drawing.Size(246, 205);
-            this.gBox_S_Forms.TabIndex = 6;
-            this.gBox_S_Forms.TabStop = false;
-            this.gBox_S_Forms.Text = "Forms";
+            this.pnl_S_Content.Controls.Add(this.gBox_S_Forms);
+            this.pnl_S_Content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_S_Content.Location = new System.Drawing.Point(265, 0);
+            this.pnl_S_Content.Name = "pnl_S_Content";
+            this.pnl_S_Content.Size = new System.Drawing.Size(535, 483);
+            this.pnl_S_Content.TabIndex = 7;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 483);
+            this.Controls.Add(this.pnl_S_Content);
             this.Controls.Add(this.pnl_S_Left);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Settings";
@@ -182,6 +195,7 @@
             this.pnl_S_Left.ResumeLayout(false);
             this.pnl_S_Left.PerformLayout();
             this.gBox_S_Forms.ResumeLayout(false);
+            this.pnl_S_Content.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -198,5 +212,6 @@
         private System.Windows.Forms.RadioButton rbtn_S_ThemeLight;
         private System.Windows.Forms.GroupBox gBox_S_Forms;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Panel pnl_S_Content;
     }
 }

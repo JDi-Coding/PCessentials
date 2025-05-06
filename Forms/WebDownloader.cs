@@ -1,4 +1,5 @@
-﻿using PCessentials.assets.WebDownloader;
+﻿using PCessentials.assets;
+using PCessentials.assets.WebDownloader;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,8 @@ namespace PCessentials.Forms
         {
             InitializeComponent();
             _downloader = new WDownloader(Path);
+            this.FormClosed += WebDownloader_FormClosed;
+            config.DarkModeChanged += StyleWebDownloader;
 
             // Events abonnieren
             _downloader.ProgressChanged += Downloader_ProgressChanged;
@@ -34,6 +37,56 @@ namespace PCessentials.Forms
             lbl_WD_URL_ERROR.Hide();
             lbl_WD_prgs.Text = "Status: Bereit";
             progressBarDownload.Show();
+
+
+        }
+        private void WebDownloader_Load(object sender, EventArgs e)
+        {
+            this.StyleWebDownloader();
+        }
+
+        private void WebDownloader_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            config.DarkModeChanged -= StyleWebDownloader;
+        }
+
+        private void StyleWebDownloader()
+        {
+            UIHelper.StyleModernChildForm(this);
+            UIHelper.StyleModernLabel(lbl_WD_Header, true);
+            UIHelper.StyleModernLabel(lbl_WD_CurrentPath);
+            UIHelper.StyleModernLabel(lbl_WD_Plattform);
+            UIHelper.StyleModernLabel(lbl_WD_URL);
+            UIHelper.StyleModernLabel(lbl_WD_prgs);
+
+            UIHelper.StyleModernButton(btn_WD_UpdatePath);
+            UIHelper.StyleModernButton(btn_WD_AddAuftrag);
+            UIHelper.StyleModernButton(btn_WD_StartDownload);
+            UIHelper.StyleModernButton(btn_WD_clearDownloadJobs);
+
+            UIHelper.StyleModernPanel(pnl_WD_SideBar);
+            UIHelper.StyleModernPanel(pnl_WD_Content);
+            UIHelper.StyleModernPanel(pnl_WD_ContentRight);
+            UIHelper.StyleModernPanel(pnl_WD_Top);
+            UIHelper.StyleModernPanel(pnl_WD_SidebarTop);
+            UIHelper.StyleModernPanel(pnl_WD_ContentRightBottom);
+            UIHelper.StyleModernPanel(pnl_WD_ContentRightCenter);
+
+
+            UIHelper.StyleModernGroupBox(gBox_WD_Path);
+            UIHelper.StyleModernGroupBox(gBox_WD_content);
+
+            UIHelper.StyleModernListBox(lBox_WD_Auftraege);
+
+            UIHelper.StyleModernTextBox(txt_WD_URL);
+
+            UIHelper.StyleModernComboBox(cbox_WD_Plattform);
+
+            UIHelper.StyleModernCheckBox(cBox_WD_Content_Audio);
+
+            UIHelper.StyleModernProgressBar(progressBarDownload);
+
+
 
 
         }
@@ -240,10 +293,7 @@ namespace PCessentials.Forms
         }
 
         #region Event Handlers
-        private void WebDownloader_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void btn_WD_UpdatePath_Click(object sender, EventArgs e)
         {
@@ -308,5 +358,7 @@ namespace PCessentials.Forms
         }
 
         #endregion
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCessentials.assets;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace PCessentials.Forms
         public Notes()
         {
             InitializeComponent();
+            this.FormClosed += Notes_FormClosed;
+            config.DarkModeChanged += StyleNotes;
+        }
+
+        private void StyleNotes()
+        {
+
+        }
+
+        private void Notes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            config.DarkModeChanged -= StyleNotes;
+        }
+
+        private void Notes_Load(object sender, EventArgs e)
+        {
+            StyleNotes();
         }
     }
 }

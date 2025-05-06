@@ -23,9 +23,34 @@ namespace PCessentials.Forms
         public Settings()
         {
             InitializeComponent();
+            this.FormClosed += Settings_FormClosed;
             config.DarkModeChanged += StyleSettings;
             StyleSettings();
         }
+        private void StyleSettings()
+        {
+            UIHelper.StyleModernChildForm(this);
+
+            UIHelper.StyleModernLabel(lbl_S_Header, true);
+
+            UIHelper.StyleModernPanel(pnl_S_Left);
+            UIHelper.StyleModernPanel(pnl_S_Content);
+
+            UIHelper.StyleModernGroupBox(gBox_S_lang);
+            UIHelper.StyleModernGroupBox(gBox_S_Theme);
+            UIHelper.StyleModernGroupBox(gBox_S_Forms);
+
+            UIHelper.StyleModernRadioButton(rBtn_S_lang_de);
+            UIHelper.StyleModernRadioButton(rBtn_S_lang_eng);
+            UIHelper.StyleModernRadioButton(rbtn_S_ThemeDark);
+            UIHelper.StyleModernRadioButton(rbtn_S_ThemeLight);
+
+        }
+        private void Settings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            config.DarkModeChanged -= StyleSettings;
+        }
+
 
         private void lbl_S_Header_Click(object sender, EventArgs e)
         {
@@ -38,23 +63,10 @@ namespace PCessentials.Forms
             //true -> DarkMode false-> LightMode
             RadioButton theme_rbtn = isDarkMode ? rbtn_S_ThemeDark : rbtn_S_ThemeLight;
             theme_rbtn.Checked = true;
-
+            StyleSettings();
         }
 
-        private void StyleSettings()
-        {
-            UIHelper.StyleModernChildForm(this);
-            UIHelper.StyleModernLabel(lbl_S_Header, true);
-            UIHelper.StyleModernPanel(pnl_S_Left);
-            UIHelper.StyleModernGroupBox(gBox_S_lang);
-            UIHelper.StyleModernGroupBox(gBox_S_Theme);
-            UIHelper.StyleModernGroupBox(gBox_S_Forms);
-            UIHelper.StyleModernRadioButton(rBtn_S_lang_de);
-            UIHelper.StyleModernRadioButton(rBtn_S_lang_eng);
-            UIHelper.StyleModernRadioButton(rbtn_S_ThemeDark);
-            UIHelper.StyleModernRadioButton(rbtn_S_ThemeLight);
-
-        }
+        
 
         private void rbtn_S_ThemeDark_CheckedChanged(object sender, EventArgs e)
         {

@@ -44,12 +44,11 @@
             // 
             this.btn_StartCleaning.BackColor = System.Drawing.Color.Silver;
             this.btn_StartCleaning.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_StartCleaning.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_StartCleaning.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_StartCleaning.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_StartCleaning.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StartCleaning.ForeColor = System.Drawing.Color.Black;
-            this.btn_StartCleaning.Location = new System.Drawing.Point(3, 252);
+            this.btn_StartCleaning.Location = new System.Drawing.Point(13, 149);
             this.btn_StartCleaning.Name = "btn_StartCleaning";
             this.btn_StartCleaning.Size = new System.Drawing.Size(377, 45);
             this.btn_StartCleaning.TabIndex = 0;
@@ -61,7 +60,7 @@
             // 
             this.lbl_Status.AutoSize = true;
             this.lbl_Status.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Status.Location = new System.Drawing.Point(6, 195);
+            this.lbl_Status.Location = new System.Drawing.Point(13, 110);
             this.lbl_Status.Name = "lbl_Status";
             this.lbl_Status.Size = new System.Drawing.Size(124, 36);
             this.lbl_Status.TabIndex = 1;
@@ -72,7 +71,7 @@
             this.lbl_StatusMsg.AutoSize = true;
             this.lbl_StatusMsg.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_StatusMsg.ForeColor = System.Drawing.Color.Tomato;
-            this.lbl_StatusMsg.Location = new System.Drawing.Point(117, 195);
+            this.lbl_StatusMsg.Location = new System.Drawing.Point(143, 110);
             this.lbl_StatusMsg.Name = "lbl_StatusMsg";
             this.lbl_StatusMsg.Size = new System.Drawing.Size(27, 36);
             this.lbl_StatusMsg.TabIndex = 2;
@@ -83,9 +82,9 @@
             this.cbox_StartUp.AutoSize = true;
             this.cbox_StartUp.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbox_StartUp.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbox_StartUp.Location = new System.Drawing.Point(3, 52);
+            this.cbox_StartUp.Location = new System.Drawing.Point(13, 62);
             this.cbox_StartUp.Name = "cbox_StartUp";
-            this.cbox_StartUp.Size = new System.Drawing.Size(377, 32);
+            this.cbox_StartUp.Size = new System.Drawing.Size(474, 32);
             this.cbox_StartUp.TabIndex = 3;
             this.cbox_StartUp.Text = "Run on Startup";
             this.cbox_StartUp.UseVisualStyleBackColor = true;
@@ -96,7 +95,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 16);
+            this.label1.Location = new System.Drawing.Point(13, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 36);
             this.label1.TabIndex = 4;
@@ -128,9 +127,12 @@
             this.gBox_DC_cleaner.Controls.Add(this.lbl_StatusMsg);
             this.gBox_DC_cleaner.Controls.Add(this.label1);
             this.gBox_DC_cleaner.Controls.Add(this.lbl_Status);
-            this.gBox_DC_cleaner.Location = new System.Drawing.Point(18, 53);
+            this.gBox_DC_cleaner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gBox_DC_cleaner.Location = new System.Drawing.Point(0, 28);
+            this.gBox_DC_cleaner.Margin = new System.Windows.Forms.Padding(13);
             this.gBox_DC_cleaner.Name = "gBox_DC_cleaner";
-            this.gBox_DC_cleaner.Size = new System.Drawing.Size(383, 300);
+            this.gBox_DC_cleaner.Padding = new System.Windows.Forms.Padding(13);
+            this.gBox_DC_cleaner.Size = new System.Drawing.Size(500, 472);
             this.gBox_DC_cleaner.TabIndex = 6;
             this.gBox_DC_cleaner.TabStop = false;
             this.gBox_DC_cleaner.Text = "Cleaner";

@@ -86,6 +86,7 @@
             this.Controls.Add(this.pnl_H_LeftSidebar);
             this.Name = "Help";
             this.Text = "Help";
+            this.Load += new System.EventHandler(this.Help_Load);
             this.pnl_H_LeftSidebar.ResumeLayout(false);
             this.pnl_H_SidebarLeftHeaderContainer.ResumeLayout(false);
             this.pnl_H_SidebarLeftHeaderContainer.PerformLayout();

@@ -22,24 +22,33 @@ namespace PCessentials.Forms
             InitializeComponent();
             cleaner = new Cleaner();
             config.DarkModeChanged += StyleDownloadCleaner;
+            this.FormClosed += DownloadCleaner_FormClosed;
         }
 
         private void StyleDownloadCleaner()
         {
-            
-            UIHelper.StyleModernButton(btn_StartCleaning);
-            UIHelper.StyleModernCheckBox(cbox_StartUp);
-            UIHelper.StyleModernLabel(label1);
-            UIHelper.StyleModernLabel(lbl_StatusMsg);
-            UIHelper.StyleModernLabel(lbl_DC_Header, true);
+            UIHelper.StyleModernChildForm(this);
+
             UIHelper.StyleModernGroupBox(gBox_DC_cleaner);
 
+            UIHelper.StyleModernButton(btn_StartCleaning);
 
-            UIHelper.StyleModernChildForm(this);
+            UIHelper.StyleModernCheckBox(cbox_StartUp);
+
+            UIHelper.StyleModernLabel(label1, true);
+            UIHelper.StyleModernLabel(lbl_StatusMsg);
+            UIHelper.StyleModernLabel(lbl_DC_Header, true);
+
+        }
+
+        private void DownloadCleaner_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            config.DarkModeChanged -= StyleDownloadCleaner;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            StyleDownloadCleaner();
             cbox_StartUp.Checked = Properties.Settings.Default.cbox_startupState;
             if (cbox_StartUp.Checked)
             {

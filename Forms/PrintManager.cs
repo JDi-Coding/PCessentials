@@ -37,19 +37,31 @@ namespace PCessentials.Forms
 
         private void StylePManager()
         {
+            UIHelper.StyleModernChildForm(this);
+
             UIHelper.StyleModernLabel(lbl_PM_Header, true);
+            UIHelper.StyleModernLabel(lblCopies);
+
+            UIHelper.StyleModernComboBox(cmbPrinters);
+            
+            //ListView ... Implement Style
+
             UIHelper.StyleModernButton(btnBrowse);
             UIHelper.StyleModernButton(btnStart);
             UIHelper.StyleModernButton(btnPause);
             UIHelper.StyleModernButton(btnStop);
+
             UIHelper.StyleModernCheckBox(chkA4);
             UIHelper.StyleModernCheckBox(chkDuplex);
             UIHelper.StyleModernCheckBox(chkLandscape);
-            UIHelper.StyleModernChildForm(this);
+            UIHelper.StyleModernCheckBox(chkGrayscale);
+
         }
 
         private void PrintManager_Load(object sender, EventArgs e)
         {
+            StylePManager();
+
             // Drucker auslesen
             cmbPrinters.Items.AddRange(pManager.getInstalledPrinters().ToArray());
             if (cmbPrinters.Items.Count > 0)

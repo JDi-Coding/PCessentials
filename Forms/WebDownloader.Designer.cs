@@ -116,7 +116,7 @@
             this.pnl_WD_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_WD_Top.Location = new System.Drawing.Point(200, 0);
             this.pnl_WD_Top.Name = "pnl_WD_Top";
-            this.pnl_WD_Top.Size = new System.Drawing.Size(1064, 42);
+            this.pnl_WD_Top.Size = new System.Drawing.Size(1108, 42);
             this.pnl_WD_Top.TabIndex = 8;
             // 
             // pnl_WD_Content
@@ -129,7 +129,7 @@
             this.pnl_WD_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_WD_Content.Location = new System.Drawing.Point(200, 42);
             this.pnl_WD_Content.Name = "pnl_WD_Content";
-            this.pnl_WD_Content.Size = new System.Drawing.Size(1064, 630);
+            this.pnl_WD_Content.Size = new System.Drawing.Size(1108, 630);
             this.pnl_WD_Content.TabIndex = 9;
             // 
             // gBox_WD_content
@@ -144,9 +144,9 @@
             this.gBox_WD_content.Controls.Add(this.lbl_WD_URL);
             this.gBox_WD_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gBox_WD_content.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBox_WD_content.Location = new System.Drawing.Point(0, 104);
+            this.gBox_WD_content.Location = new System.Drawing.Point(0, 125);
             this.gBox_WD_content.Name = "gBox_WD_content";
-            this.gBox_WD_content.Size = new System.Drawing.Size(490, 522);
+            this.gBox_WD_content.Size = new System.Drawing.Size(534, 501);
             this.gBox_WD_content.TabIndex = 11;
             this.gBox_WD_content.TabStop = false;
             this.gBox_WD_content.Text = "Auftrag";
@@ -154,7 +154,7 @@
             // cBox_WD_Content_Audio
             // 
             this.cBox_WD_Content_Audio.AutoSize = true;
-            this.cBox_WD_Content_Audio.Location = new System.Drawing.Point(10, 143);
+            this.cBox_WD_Content_Audio.Location = new System.Drawing.Point(10, 249);
             this.cBox_WD_Content_Audio.Name = "cBox_WD_Content_Audio";
             this.cBox_WD_Content_Audio.Size = new System.Drawing.Size(128, 26);
             this.cBox_WD_Content_Audio.TabIndex = 13;
@@ -163,7 +163,7 @@
             // 
             // btn_WD_AddAuftrag
             // 
-            this.btn_WD_AddAuftrag.Location = new System.Drawing.Point(6, 262);
+            this.btn_WD_AddAuftrag.Location = new System.Drawing.Point(10, 444);
             this.btn_WD_AddAuftrag.Name = "btn_WD_AddAuftrag";
             this.btn_WD_AddAuftrag.Size = new System.Drawing.Size(106, 34);
             this.btn_WD_AddAuftrag.TabIndex = 12;
@@ -174,9 +174,10 @@
             // lbl_WD_Plattform_ERROR
             // 
             this.lbl_WD_Plattform_ERROR.AutoSize = true;
+            this.lbl_WD_Plattform_ERROR.BackColor = System.Drawing.Color.Transparent;
             this.lbl_WD_Plattform_ERROR.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_WD_Plattform_ERROR.ForeColor = System.Drawing.Color.Red;
-            this.lbl_WD_Plattform_ERROR.Location = new System.Drawing.Point(106, 13);
+            this.lbl_WD_Plattform_ERROR.Location = new System.Drawing.Point(136, 24);
             this.lbl_WD_Plattform_ERROR.Name = "lbl_WD_Plattform_ERROR";
             this.lbl_WD_Plattform_ERROR.Size = new System.Drawing.Size(51, 19);
             this.lbl_WD_Plattform_ERROR.TabIndex = 11;
@@ -185,9 +186,10 @@
             // lbl_WD_URL_ERROR
             // 
             this.lbl_WD_URL_ERROR.AutoSize = true;
+            this.lbl_WD_URL_ERROR.BackColor = System.Drawing.Color.Transparent;
             this.lbl_WD_URL_ERROR.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_WD_URL_ERROR.ForeColor = System.Drawing.Color.Red;
-            this.lbl_WD_URL_ERROR.Location = new System.Drawing.Point(102, 71);
+            this.lbl_WD_URL_ERROR.Location = new System.Drawing.Point(136, 119);
             this.lbl_WD_URL_ERROR.Name = "lbl_WD_URL_ERROR";
             this.lbl_WD_URL_ERROR.Size = new System.Drawing.Size(51, 19);
             this.lbl_WD_URL_ERROR.TabIndex = 10;
@@ -196,9 +198,9 @@
             // txt_WD_URL
             // 
             this.txt_WD_URL.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_WD_URL.Location = new System.Drawing.Point(106, 93);
+            this.txt_WD_URL.Location = new System.Drawing.Point(126, 159);
             this.txt_WD_URL.Name = "txt_WD_URL";
-            this.txt_WD_URL.Size = new System.Drawing.Size(378, 21);
+            this.txt_WD_URL.Size = new System.Drawing.Size(358, 21);
             this.txt_WD_URL.TabIndex = 9;
             // 
             // cbox_WD_Plattform
@@ -209,16 +211,16 @@
             this.cbox_WD_Plattform.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbox_WD_Plattform.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbox_WD_Plattform.FormattingEnabled = true;
-            this.cbox_WD_Plattform.Location = new System.Drawing.Point(106, 35);
+            this.cbox_WD_Plattform.Location = new System.Drawing.Point(126, 53);
             this.cbox_WD_Plattform.Name = "cbox_WD_Plattform";
-            this.cbox_WD_Plattform.Size = new System.Drawing.Size(378, 27);
+            this.cbox_WD_Plattform.Size = new System.Drawing.Size(402, 27);
             this.cbox_WD_Plattform.TabIndex = 3;
             // 
             // lbl_WD_Plattform
             // 
             this.lbl_WD_Plattform.AutoSize = true;
             this.lbl_WD_Plattform.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_WD_Plattform.Location = new System.Drawing.Point(6, 35);
+            this.lbl_WD_Plattform.Location = new System.Drawing.Point(3, 53);
             this.lbl_WD_Plattform.Name = "lbl_WD_Plattform";
             this.lbl_WD_Plattform.Size = new System.Drawing.Size(94, 22);
             this.lbl_WD_Plattform.TabIndex = 1;
@@ -228,7 +230,7 @@
             // 
             this.lbl_WD_URL.AutoSize = true;
             this.lbl_WD_URL.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_WD_URL.Location = new System.Drawing.Point(6, 93);
+            this.lbl_WD_URL.Location = new System.Drawing.Point(6, 159);
             this.lbl_WD_URL.Name = "lbl_WD_URL";
             this.lbl_WD_URL.Size = new System.Drawing.Size(99, 22);
             this.lbl_WD_URL.TabIndex = 8;
@@ -241,9 +243,9 @@
             this.pnl_WD_ContentRight.Controls.Add(this.lBox_WD_Auftraege);
             this.pnl_WD_ContentRight.Controls.Add(this.pnl_WD_ContentRightBottom);
             this.pnl_WD_ContentRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnl_WD_ContentRight.Location = new System.Drawing.Point(490, 104);
+            this.pnl_WD_ContentRight.Location = new System.Drawing.Point(534, 125);
             this.pnl_WD_ContentRight.Name = "pnl_WD_ContentRight";
-            this.pnl_WD_ContentRight.Size = new System.Drawing.Size(570, 522);
+            this.pnl_WD_ContentRight.Size = new System.Drawing.Size(570, 501);
             this.pnl_WD_ContentRight.TabIndex = 10;
             // 
             // pnl_WD_ContentRightCenter
@@ -255,7 +257,7 @@
             this.pnl_WD_ContentRightCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_WD_ContentRightCenter.Location = new System.Drawing.Point(0, 195);
             this.pnl_WD_ContentRightCenter.Name = "pnl_WD_ContentRightCenter";
-            this.pnl_WD_ContentRightCenter.Size = new System.Drawing.Size(566, 224);
+            this.pnl_WD_ContentRightCenter.Size = new System.Drawing.Size(566, 203);
             this.pnl_WD_ContentRightCenter.TabIndex = 13;
             // 
             // lbl_WD_prgs
@@ -271,7 +273,7 @@
             // 
             // progressBarDownload
             // 
-            this.progressBarDownload.Location = new System.Drawing.Point(1, 36);
+            this.progressBarDownload.Location = new System.Drawing.Point(3, 88);
             this.progressBarDownload.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.progressBarDownload.Name = "progressBarDownload";
             this.progressBarDownload.Size = new System.Drawing.Size(555, 23);
@@ -294,7 +296,7 @@
             this.pnl_WD_ContentRightBottom.Controls.Add(this.btn_WD_clearDownloadJobs);
             this.pnl_WD_ContentRightBottom.Controls.Add(this.btn_WD_StartDownload);
             this.pnl_WD_ContentRightBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_WD_ContentRightBottom.Location = new System.Drawing.Point(0, 419);
+            this.pnl_WD_ContentRightBottom.Location = new System.Drawing.Point(0, 398);
             this.pnl_WD_ContentRightBottom.Name = "pnl_WD_ContentRightBottom";
             this.pnl_WD_ContentRightBottom.Size = new System.Drawing.Size(566, 99);
             this.pnl_WD_ContentRightBottom.TabIndex = 1;
@@ -328,18 +330,17 @@
             this.gBox_WD_Path.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBox_WD_Path.Location = new System.Drawing.Point(0, 0);
             this.gBox_WD_Path.Name = "gBox_WD_Path";
-            this.gBox_WD_Path.Size = new System.Drawing.Size(1060, 104);
+            this.gBox_WD_Path.Size = new System.Drawing.Size(1104, 125);
             this.gBox_WD_Path.TabIndex = 7;
             this.gBox_WD_Path.TabStop = false;
             this.gBox_WD_Path.Text = "Path";
             // 
             // btn_WD_UpdatePath
             // 
-            this.btn_WD_UpdatePath.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_WD_UpdatePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_WD_UpdatePath.Location = new System.Drawing.Point(3, 68);
+            this.btn_WD_UpdatePath.Location = new System.Drawing.Point(7, 56);
             this.btn_WD_UpdatePath.Name = "btn_WD_UpdatePath";
-            this.btn_WD_UpdatePath.Size = new System.Drawing.Size(1054, 30);
+            this.btn_WD_UpdatePath.Size = new System.Drawing.Size(219, 42);
             this.btn_WD_UpdatePath.TabIndex = 6;
             this.btn_WD_UpdatePath.Text = "Update";
             this.btn_WD_UpdatePath.UseVisualStyleBackColor = true;
@@ -347,10 +348,9 @@
             // 
             // txtBox_WD_Path
             // 
-            this.txtBox_WD_Path.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtBox_WD_Path.Location = new System.Drawing.Point(3, 40);
+            this.txtBox_WD_Path.Location = new System.Drawing.Point(248, 63);
             this.txtBox_WD_Path.Name = "txtBox_WD_Path";
-            this.txtBox_WD_Path.Size = new System.Drawing.Size(1054, 28);
+            this.txtBox_WD_Path.Size = new System.Drawing.Size(505, 28);
             this.txtBox_WD_Path.TabIndex = 2;
             // 
             // lbl_WD_CurrentPath
@@ -369,12 +369,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1264, 672);
+            this.ClientSize = new System.Drawing.Size(1308, 672);
             this.Controls.Add(this.pnl_WD_Content);
             this.Controls.Add(this.pnl_WD_Top);
             this.Controls.Add(this.pnl_WD_SideBar);
             this.Controls.Add(this.lblStatus);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "WebDownloader";
             this.Text = "WebDownloader";

@@ -35,11 +35,10 @@ namespace PCessentials.Forms
             // Apply modern styling
             UIHelper.StyleModernMainForm(this, Color.DodgerBlue);
             UIHelper.StyleModernListBox(listBoxForms);
-            UIHelper.StyleModernPanel(pnl_MF_Content);
+            //UIHelper.StyleModernPanel(pnl_MF_Content);
             UIHelper.StyleModernPanel(pnl_MF_Top);
             UIHelper.StyleModernPanel(pnl_MF_TopLeft);
             UIHelper.StyleModernPanel(pnl_MF_Sidebar);
-            UIHelper.StyleModernPanel(pnl_MF_Bottom);
             UIHelper.StyleModernPanel(pnl_MF_SidebarBottom);
         }
 

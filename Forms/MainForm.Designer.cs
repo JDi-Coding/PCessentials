@@ -31,20 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.pnl_MF_Sidebar = new System.Windows.Forms.Panel();
             this.pnl_MF_FormList = new System.Windows.Forms.Panel();
+            this.listBoxForms = new System.Windows.Forms.ListBox();
             this.pnl_MF_SidebarBottom = new System.Windows.Forms.Panel();
             this.pnl_MF_SidebarTopLogo = new System.Windows.Forms.Panel();
             this.pnl_MF_Content = new System.Windows.Forms.Panel();
-            this.pnl_MF_Bottom = new System.Windows.Forms.Panel();
             this.pnl_MF_Top = new System.Windows.Forms.Panel();
             this.pnl_MF_TopLeft = new System.Windows.Forms.Panel();
             this.btn_MF_WindowState = new System.Windows.Forms.Button();
             this.btn_MF_Minimize = new System.Windows.Forms.Button();
             this.btn_MF_Close = new System.Windows.Forms.Button();
             this.tt_MF = new System.Windows.Forms.ToolTip(this.components);
-            this.listBoxForms = new System.Windows.Forms.ListBox();
             this.pnl_MF_Sidebar.SuspendLayout();
             this.pnl_MF_FormList.SuspendLayout();
-            this.pnl_MF_Content.SuspendLayout();
             this.pnl_MF_Top.SuspendLayout();
             this.pnl_MF_TopLeft.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +73,17 @@
             this.pnl_MF_FormList.Size = new System.Drawing.Size(343, 682);
             this.pnl_MF_FormList.TabIndex = 3;
             // 
+            // listBoxForms
+            // 
+            this.listBoxForms.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBoxForms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxForms.FormattingEnabled = true;
+            this.listBoxForms.Location = new System.Drawing.Point(10, 10);
+            this.listBoxForms.Margin = new System.Windows.Forms.Padding(0);
+            this.listBoxForms.Name = "listBoxForms";
+            this.listBoxForms.Size = new System.Drawing.Size(323, 662);
+            this.listBoxForms.TabIndex = 4;
+            // 
             // pnl_MF_SidebarBottom
             // 
             this.pnl_MF_SidebarBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -99,21 +108,12 @@
             // 
             this.pnl_MF_Content.BackColor = System.Drawing.Color.DimGray;
             this.pnl_MF_Content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_MF_Content.Controls.Add(this.pnl_MF_Bottom);
             this.pnl_MF_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_MF_Content.Location = new System.Drawing.Point(345, 74);
             this.pnl_MF_Content.Margin = new System.Windows.Forms.Padding(0);
             this.pnl_MF_Content.Name = "pnl_MF_Content";
             this.pnl_MF_Content.Size = new System.Drawing.Size(1459, 787);
             this.pnl_MF_Content.TabIndex = 1;
-            // 
-            // pnl_MF_Bottom
-            // 
-            this.pnl_MF_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_MF_Bottom.Location = new System.Drawing.Point(0, 765);
-            this.pnl_MF_Bottom.Name = "pnl_MF_Bottom";
-            this.pnl_MF_Bottom.Size = new System.Drawing.Size(1457, 20);
-            this.pnl_MF_Bottom.TabIndex = 0;
             // 
             // pnl_MF_Top
             // 
@@ -199,17 +199,6 @@
             // 
             this.tt_MF.ToolTipTitle = "-";
             // 
-            // listBoxForms
-            // 
-            this.listBoxForms.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listBoxForms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxForms.FormattingEnabled = true;
-            this.listBoxForms.Location = new System.Drawing.Point(10, 10);
-            this.listBoxForms.Margin = new System.Windows.Forms.Padding(0);
-            this.listBoxForms.Name = "listBoxForms";
-            this.listBoxForms.Size = new System.Drawing.Size(323, 662);
-            this.listBoxForms.TabIndex = 4;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,7 +214,6 @@
             this.Text = "PCessentials";
             this.pnl_MF_Sidebar.ResumeLayout(false);
             this.pnl_MF_FormList.ResumeLayout(false);
-            this.pnl_MF_Content.ResumeLayout(false);
             this.pnl_MF_Top.ResumeLayout(false);
             this.pnl_MF_TopLeft.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -243,7 +231,6 @@
         private System.Windows.Forms.Panel pnl_MF_FormList;
         private System.Windows.Forms.Button btn_MF_Minimize;
         private System.Windows.Forms.Button btn_MF_Close;
-        private System.Windows.Forms.Panel pnl_MF_Bottom;
         private System.Windows.Forms.Panel pnl_MF_TopLeft;
         private System.Windows.Forms.Button btn_MF_WindowState;
         private System.Windows.Forms.ListBox listBoxForms;

@@ -30,9 +30,9 @@ namespace PCessentials.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lstServices = new System.Windows.Forms.ListBox();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -48,7 +48,9 @@ namespace PCessentials.Forms
             this.btnUpdateEntry = new System.Windows.Forms.Button();
             this.btnDeleteEntry = new System.Windows.Forms.Button();
             this.pnl_ServiceSettings = new System.Windows.Forms.Panel();
+            this.btn_import = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_Export = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,8 +74,6 @@ namespace PCessentials.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlDGV = new System.Windows.Forms.Panel();
-            this.btn_Export = new System.Windows.Forms.Button();
-            this.btn_import = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).BeginInit();
             this.pnl_ServiceSettings.SuspendLayout();
             this.pnl_EntrySettings.SuspendLayout();
@@ -91,7 +91,7 @@ namespace PCessentials.Forms
             this.lstServices.Location = new System.Drawing.Point(0, 0);
             this.lstServices.Margin = new System.Windows.Forms.Padding(0);
             this.lstServices.Name = "lstServices";
-            this.lstServices.Size = new System.Drawing.Size(170, 561);
+            this.lstServices.Size = new System.Drawing.Size(170, 677);
             this.lstServices.TabIndex = 0;
             this.lstServices.SelectedIndexChanged += new System.EventHandler(this.lstServices_SelectedIndexChanged);
             // 
@@ -109,7 +109,7 @@ namespace PCessentials.Forms
             this.txtEmail.BackColor = System.Drawing.Color.White;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(72, 78);
+            this.txtEmail.Location = new System.Drawing.Point(107, 188);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(389, 18);
             this.txtEmail.TabIndex = 6;
@@ -120,7 +120,7 @@ namespace PCessentials.Forms
             this.txtTelephone.BackColor = System.Drawing.Color.White;
             this.txtTelephone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTelephone.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelephone.Location = new System.Drawing.Point(72, 107);
+            this.txtTelephone.Location = new System.Drawing.Point(108, 240);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(389, 18);
             this.txtTelephone.TabIndex = 7;
@@ -131,7 +131,7 @@ namespace PCessentials.Forms
             this.txtUsername.BackColor = System.Drawing.Color.White;
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(72, 15);
+            this.txtUsername.Location = new System.Drawing.Point(108, 83);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(389, 18);
             this.txtUsername.TabIndex = 8;
@@ -142,7 +142,7 @@ namespace PCessentials.Forms
             this.txtPassword.BackColor = System.Drawing.Color.White;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(72, 49);
+            this.txtPassword.Location = new System.Drawing.Point(107, 139);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(389, 18);
             this.txtPassword.TabIndex = 9;
@@ -153,7 +153,7 @@ namespace PCessentials.Forms
             this.txtOther.BackColor = System.Drawing.Color.White;
             this.txtOther.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtOther.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOther.Location = new System.Drawing.Point(72, 136);
+            this.txtOther.Location = new System.Drawing.Point(108, 292);
             this.txtOther.Name = "txtOther";
             this.txtOther.Size = new System.Drawing.Size(389, 18);
             this.txtOther.TabIndex = 10;
@@ -164,7 +164,7 @@ namespace PCessentials.Forms
             this.btnAddCategory.BackColor = System.Drawing.Color.Green;
             this.btnAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnAddCategory.Location = new System.Drawing.Point(6, 90);
+            this.btnAddCategory.Location = new System.Drawing.Point(6, 354);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(52, 45);
             this.btnAddCategory.TabIndex = 2;
@@ -177,7 +177,7 @@ namespace PCessentials.Forms
             this.btnRenameCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnRenameCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRenameCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnRenameCategory.Location = new System.Drawing.Point(76, 90);
+            this.btnRenameCategory.Location = new System.Drawing.Point(6, 443);
             this.btnRenameCategory.Name = "btnRenameCategory";
             this.btnRenameCategory.Size = new System.Drawing.Size(52, 45);
             this.btnRenameCategory.TabIndex = 3;
@@ -190,7 +190,7 @@ namespace PCessentials.Forms
             this.btnRemoveCategory.BackColor = System.Drawing.Color.Red;
             this.btnRemoveCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveCategory.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnRemoveCategory.Location = new System.Drawing.Point(6, 166);
+            this.btnRemoveCategory.Location = new System.Drawing.Point(9, 530);
             this.btnRemoveCategory.Name = "btnRemoveCategory";
             this.btnRemoveCategory.Size = new System.Drawing.Size(52, 45);
             this.btnRemoveCategory.TabIndex = 4;
@@ -205,38 +205,38 @@ namespace PCessentials.Forms
             this.dgvEntries.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvEntries.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvEntries.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEntries.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEntries.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dgvEntries.ColumnHeadersHeight = 40;
             this.dgvEntries.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.NullValue = "none";
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEntries.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.NullValue = "none";
+            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEntries.DefaultCellStyle = dataGridViewCellStyle32;
             this.dgvEntries.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEntries.EnableHeadersVisualStyles = false;
             this.dgvEntries.GridColor = System.Drawing.SystemColors.Control;
             this.dgvEntries.Location = new System.Drawing.Point(0, 0);
             this.dgvEntries.Name = "dgvEntries";
             this.dgvEntries.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEntries.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEntries.RowsDefaultCellStyle = dataGridViewCellStyle33;
             this.dgvEntries.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEntries.Size = new System.Drawing.Size(1044, 355);
+            this.dgvEntries.Size = new System.Drawing.Size(1146, 355);
             this.dgvEntries.TabIndex = 5;
             // 
             // btnAddEntry
@@ -302,24 +302,44 @@ namespace PCessentials.Forms
             this.pnl_ServiceSettings.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_ServiceSettings.Location = new System.Drawing.Point(170, 0);
             this.pnl_ServiceSettings.Name = "pnl_ServiceSettings";
-            this.pnl_ServiceSettings.Size = new System.Drawing.Size(134, 561);
+            this.pnl_ServiceSettings.Size = new System.Drawing.Size(134, 677);
             this.pnl_ServiceSettings.TabIndex = 14;
+            // 
+            // btn_import
+            // 
+            this.btn_import.Location = new System.Drawing.Point(6, 626);
+            this.btn_import.Name = "btn_import";
+            this.btn_import.Size = new System.Drawing.Size(122, 39);
+            this.btn_import.TabIndex = 33;
+            this.btn_import.Text = "Import";
+            this.btn_import.UseVisualStyleBackColor = true;
+            this.btn_import.Click += new System.EventHandler(this.btn_import_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 148);
+            this.label4.Location = new System.Drawing.Point(6, 501);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Delete";
             // 
+            // btn_Export
+            // 
+            this.btn_Export.Location = new System.Drawing.Point(6, 581);
+            this.btn_Export.Name = "btn_Export";
+            this.btn_Export.Size = new System.Drawing.Size(122, 39);
+            this.btn_Export.TabIndex = 32;
+            this.btn_Export.Text = "Export";
+            this.btn_Export.UseVisualStyleBackColor = true;
+            this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(73, 72);
+            this.label3.Location = new System.Drawing.Point(7, 414);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 15);
             this.label3.TabIndex = 7;
@@ -329,7 +349,7 @@ namespace PCessentials.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Location = new System.Drawing.Point(7, 326);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 15);
             this.label2.TabIndex = 6;
@@ -364,25 +384,26 @@ namespace PCessentials.Forms
             this.pnl_EntrySettings.Controls.Add(this.label9);
             this.pnl_EntrySettings.Controls.Add(this.label8);
             this.pnl_EntrySettings.Controls.Add(this.label7);
-            this.pnl_EntrySettings.Controls.Add(this.label6);
             this.pnl_EntrySettings.Controls.Add(this.label5);
             this.pnl_EntrySettings.Controls.Add(this.txtUsername);
             this.pnl_EntrySettings.Controls.Add(this.txtOther);
             this.pnl_EntrySettings.Controls.Add(this.txtTelephone);
             this.pnl_EntrySettings.Controls.Add(this.txtEmail);
             this.pnl_EntrySettings.Controls.Add(this.txtPassword);
-            this.pnl_EntrySettings.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_EntrySettings.Location = new System.Drawing.Point(304, 358);
+            this.pnl_EntrySettings.Controls.Add(this.label6);
+            this.pnl_EntrySettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_EntrySettings.Location = new System.Drawing.Point(304, 355);
             this.pnl_EntrySettings.Margin = new System.Windows.Forms.Padding(6);
             this.pnl_EntrySettings.Name = "pnl_EntrySettings";
-            this.pnl_EntrySettings.Size = new System.Drawing.Size(1044, 203);
+            this.pnl_EntrySettings.Size = new System.Drawing.Size(1146, 322);
             this.pnl_EntrySettings.TabIndex = 15;
+            this.pnl_EntrySettings.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_EntrySettings_Paint);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(638, 19);
+            this.label10.Location = new System.Drawing.Point(9, 14);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 15);
             this.label10.TabIndex = 31;
@@ -393,16 +414,16 @@ namespace PCessentials.Forms
             this.txtEntryName.BackColor = System.Drawing.Color.White;
             this.txtEntryName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEntryName.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEntryName.Location = new System.Drawing.Point(714, 15);
+            this.txtEntryName.Location = new System.Drawing.Point(108, 14);
             this.txtEntryName.Name = "txtEntryName";
-            this.txtEntryName.Size = new System.Drawing.Size(193, 18);
+            this.txtEntryName.Size = new System.Drawing.Size(579, 18);
             this.txtEntryName.TabIndex = 30;
             // 
             // btn_UN_Visibility
             // 
-            this.btn_UN_Visibility.Location = new System.Drawing.Point(549, 15);
+            this.btn_UN_Visibility.Location = new System.Drawing.Point(629, 72);
             this.btn_UN_Visibility.Name = "btn_UN_Visibility";
-            this.btn_UN_Visibility.Size = new System.Drawing.Size(75, 23);
+            this.btn_UN_Visibility.Size = new System.Drawing.Size(88, 36);
             this.btn_UN_Visibility.TabIndex = 29;
             this.btn_UN_Visibility.Text = "Show";
             this.btn_UN_Visibility.UseVisualStyleBackColor = true;
@@ -410,9 +431,9 @@ namespace PCessentials.Forms
             // 
             // btn_OTHER_Visibility
             // 
-            this.btn_OTHER_Visibility.Location = new System.Drawing.Point(549, 138);
+            this.btn_OTHER_Visibility.Location = new System.Drawing.Point(629, 281);
             this.btn_OTHER_Visibility.Name = "btn_OTHER_Visibility";
-            this.btn_OTHER_Visibility.Size = new System.Drawing.Size(75, 23);
+            this.btn_OTHER_Visibility.Size = new System.Drawing.Size(88, 36);
             this.btn_OTHER_Visibility.TabIndex = 28;
             this.btn_OTHER_Visibility.Text = "Show";
             this.btn_OTHER_Visibility.UseVisualStyleBackColor = true;
@@ -420,9 +441,9 @@ namespace PCessentials.Forms
             // 
             // btn_EMAIL_Visibility
             // 
-            this.btn_EMAIL_Visibility.Location = new System.Drawing.Point(549, 80);
+            this.btn_EMAIL_Visibility.Location = new System.Drawing.Point(629, 177);
             this.btn_EMAIL_Visibility.Name = "btn_EMAIL_Visibility";
-            this.btn_EMAIL_Visibility.Size = new System.Drawing.Size(75, 23);
+            this.btn_EMAIL_Visibility.Size = new System.Drawing.Size(88, 36);
             this.btn_EMAIL_Visibility.TabIndex = 27;
             this.btn_EMAIL_Visibility.Text = "Show";
             this.btn_EMAIL_Visibility.UseVisualStyleBackColor = true;
@@ -430,9 +451,9 @@ namespace PCessentials.Forms
             // 
             // btn_TEL_Visibility
             // 
-            this.btn_TEL_Visibility.Location = new System.Drawing.Point(549, 109);
+            this.btn_TEL_Visibility.Location = new System.Drawing.Point(629, 227);
             this.btn_TEL_Visibility.Name = "btn_TEL_Visibility";
-            this.btn_TEL_Visibility.Size = new System.Drawing.Size(75, 23);
+            this.btn_TEL_Visibility.Size = new System.Drawing.Size(88, 36);
             this.btn_TEL_Visibility.TabIndex = 26;
             this.btn_TEL_Visibility.Text = "Show";
             this.btn_TEL_Visibility.UseVisualStyleBackColor = true;
@@ -440,9 +461,9 @@ namespace PCessentials.Forms
             // 
             // btn_PW_Visibility
             // 
-            this.btn_PW_Visibility.Location = new System.Drawing.Point(549, 49);
+            this.btn_PW_Visibility.Location = new System.Drawing.Point(629, 128);
             this.btn_PW_Visibility.Name = "btn_PW_Visibility";
-            this.btn_PW_Visibility.Size = new System.Drawing.Size(75, 23);
+            this.btn_PW_Visibility.Size = new System.Drawing.Size(88, 36);
             this.btn_PW_Visibility.TabIndex = 25;
             this.btn_PW_Visibility.Text = "Show";
             this.btn_PW_Visibility.UseVisualStyleBackColor = true;
@@ -450,9 +471,9 @@ namespace PCessentials.Forms
             // 
             // btn_CopyOther
             // 
-            this.btn_CopyOther.Location = new System.Drawing.Point(468, 136);
+            this.btn_CopyOther.Location = new System.Drawing.Point(526, 281);
             this.btn_CopyOther.Name = "btn_CopyOther";
-            this.btn_CopyOther.Size = new System.Drawing.Size(75, 23);
+            this.btn_CopyOther.Size = new System.Drawing.Size(88, 36);
             this.btn_CopyOther.TabIndex = 24;
             this.btn_CopyOther.Text = "Copy";
             this.btn_CopyOther.UseVisualStyleBackColor = true;
@@ -460,9 +481,9 @@ namespace PCessentials.Forms
             // 
             // btn_CopyTel
             // 
-            this.btn_CopyTel.Location = new System.Drawing.Point(468, 107);
+            this.btn_CopyTel.Location = new System.Drawing.Point(526, 229);
             this.btn_CopyTel.Name = "btn_CopyTel";
-            this.btn_CopyTel.Size = new System.Drawing.Size(75, 23);
+            this.btn_CopyTel.Size = new System.Drawing.Size(88, 36);
             this.btn_CopyTel.TabIndex = 23;
             this.btn_CopyTel.Text = "Copy";
             this.btn_CopyTel.UseVisualStyleBackColor = true;
@@ -470,9 +491,9 @@ namespace PCessentials.Forms
             // 
             // btn_CopyEMAIL
             // 
-            this.btn_CopyEMAIL.Location = new System.Drawing.Point(468, 78);
+            this.btn_CopyEMAIL.Location = new System.Drawing.Point(526, 177);
             this.btn_CopyEMAIL.Name = "btn_CopyEMAIL";
-            this.btn_CopyEMAIL.Size = new System.Drawing.Size(75, 23);
+            this.btn_CopyEMAIL.Size = new System.Drawing.Size(88, 36);
             this.btn_CopyEMAIL.TabIndex = 22;
             this.btn_CopyEMAIL.Text = "Copy";
             this.btn_CopyEMAIL.UseVisualStyleBackColor = true;
@@ -480,9 +501,9 @@ namespace PCessentials.Forms
             // 
             // btn_CopyPW
             // 
-            this.btn_CopyPW.Location = new System.Drawing.Point(468, 48);
+            this.btn_CopyPW.Location = new System.Drawing.Point(526, 128);
             this.btn_CopyPW.Name = "btn_CopyPW";
-            this.btn_CopyPW.Size = new System.Drawing.Size(75, 23);
+            this.btn_CopyPW.Size = new System.Drawing.Size(88, 36);
             this.btn_CopyPW.TabIndex = 21;
             this.btn_CopyPW.Text = "Copy";
             this.btn_CopyPW.UseVisualStyleBackColor = true;
@@ -490,9 +511,9 @@ namespace PCessentials.Forms
             // 
             // btn_CopyUN
             // 
-            this.btn_CopyUN.Location = new System.Drawing.Point(468, 15);
+            this.btn_CopyUN.Location = new System.Drawing.Point(526, 74);
             this.btn_CopyUN.Name = "btn_CopyUN";
-            this.btn_CopyUN.Size = new System.Drawing.Size(75, 23);
+            this.btn_CopyUN.Size = new System.Drawing.Size(88, 36);
             this.btn_CopyUN.TabIndex = 20;
             this.btn_CopyUN.Text = "Copy";
             this.btn_CopyUN.UseVisualStyleBackColor = true;
@@ -505,16 +526,16 @@ namespace PCessentials.Forms
             this.pnl_EntrySetsBtns.Controls.Add(this.btnUpdateEntry);
             this.pnl_EntrySetsBtns.Controls.Add(this.btnDeleteEntry);
             this.pnl_EntrySetsBtns.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnl_EntrySetsBtns.Location = new System.Drawing.Point(916, 0);
+            this.pnl_EntrySetsBtns.Location = new System.Drawing.Point(1018, 0);
             this.pnl_EntrySetsBtns.Name = "pnl_EntrySetsBtns";
-            this.pnl_EntrySetsBtns.Size = new System.Drawing.Size(128, 203);
+            this.pnl_EntrySetsBtns.Size = new System.Drawing.Size(128, 322);
             this.pnl_EntrySetsBtns.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 136);
+            this.label9.Location = new System.Drawing.Point(9, 292);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 15);
             this.label9.TabIndex = 18;
@@ -524,7 +545,7 @@ namespace PCessentials.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 99);
+            this.label8.Location = new System.Drawing.Point(9, 243);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 15);
             this.label8.TabIndex = 17;
@@ -534,7 +555,7 @@ namespace PCessentials.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 70);
+            this.label7.Location = new System.Drawing.Point(9, 188);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 15);
             this.label7.TabIndex = 16;
@@ -544,7 +565,7 @@ namespace PCessentials.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 44);
+            this.label6.Location = new System.Drawing.Point(9, 141);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 15);
             this.label6.TabIndex = 15;
@@ -554,7 +575,7 @@ namespace PCessentials.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 15);
+            this.label5.Location = new System.Drawing.Point(9, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 14;
@@ -566,35 +587,15 @@ namespace PCessentials.Forms
             this.pnlDGV.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDGV.Location = new System.Drawing.Point(304, 0);
             this.pnlDGV.Name = "pnlDGV";
-            this.pnlDGV.Size = new System.Drawing.Size(1044, 355);
+            this.pnlDGV.Size = new System.Drawing.Size(1146, 355);
             this.pnlDGV.TabIndex = 16;
-            // 
-            // btn_Export
-            // 
-            this.btn_Export.Location = new System.Drawing.Point(71, 188);
-            this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(60, 23);
-            this.btn_Export.TabIndex = 32;
-            this.btn_Export.Text = "Export";
-            this.btn_Export.UseVisualStyleBackColor = true;
-            this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
-            // 
-            // btn_import
-            // 
-            this.btn_import.Location = new System.Drawing.Point(71, 159);
-            this.btn_import.Name = "btn_import";
-            this.btn_import.Size = new System.Drawing.Size(60, 23);
-            this.btn_import.TabIndex = 33;
-            this.btn_import.Text = "Import";
-            this.btn_import.UseVisualStyleBackColor = true;
-            this.btn_import.Click += new System.EventHandler(this.btn_import_Click);
             // 
             // PSWManager
             // 
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(1348, 561);
-            this.Controls.Add(this.pnlDGV);
+            this.ClientSize = new System.Drawing.Size(1450, 677);
             this.Controls.Add(this.pnl_EntrySettings);
+            this.Controls.Add(this.pnlDGV);
             this.Controls.Add(this.pnl_ServiceSettings);
             this.Controls.Add(this.lstServices);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);

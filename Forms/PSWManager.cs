@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PCessentials;
+using PCessentials.assets;
 
 
 namespace PCessentials.Forms
@@ -20,6 +21,9 @@ namespace PCessentials.Forms
         {
             InitializeComponent();
             manager = new PasswortManager();
+            // 0) Theme Styling
+            config.DarkModeChanged += StylePSWManager;
+            this.FormClosed += PSWManager_FormClosed;
 
             // 1) Kategorien laden
             RefreshCategoryList();
@@ -38,6 +42,57 @@ namespace PCessentials.Forms
             dgvEntries.SelectionChanged += dgvEntries_SelectionChanged;
 
             StyleDataGridView(dgvEntries);
+        }
+
+        private void StylePSWManager()
+        {
+            UIHelper.StyleModernChildForm(this);
+
+            UIHelper.StyleModernPanel(pnl_EntrySettings);
+            UIHelper.StyleModernPanel(pnl_EntrySetsBtns);
+            UIHelper.StyleModernPanel(pnl_ServiceSettings);
+            UIHelper.StyleModernPanel(pnlDGV);
+
+            UIHelper.StyleModernListBox(lstServices);
+
+            UIHelper.StyleModernLabel(label1);
+            UIHelper.StyleModernLabel(label2);
+            UIHelper.StyleModernLabel(label3);
+            UIHelper.StyleModernLabel(label4);
+            UIHelper.StyleModernLabel(label5);
+            UIHelper.StyleModernLabel(label6);
+            UIHelper.StyleModernLabel(label7);
+            UIHelper.StyleModernLabel(label8);
+            UIHelper.StyleModernLabel(label9);
+            UIHelper.StyleModernLabel(label10);
+
+            UIHelper.StyleModernTextBox(txtCategoryName);
+            UIHelper.StyleModernTextBox(txtUsername);
+            UIHelper.StyleModernTextBox(txtPassword);
+            UIHelper.StyleModernTextBox(txtEmail);
+            UIHelper.StyleModernTextBox(txtTelephone);
+            UIHelper.StyleModernTextBox(txtOther);
+            UIHelper.StyleModernTextBox(txtEntryName);
+
+            UIHelper.StyleModernButton(btn_import);
+            UIHelper.StyleModernButton(btn_Export);
+            UIHelper.StyleModernButton(btn_CopyUN);
+            UIHelper.StyleModernButton(btn_CopyPW);
+            UIHelper.StyleModernButton(btn_CopyEMAIL);
+            UIHelper.StyleModernButton(btn_CopyTel);
+            UIHelper.StyleModernButton(btn_CopyOther);
+            UIHelper.StyleModernButton(btn_UN_Visibility);
+            UIHelper.StyleModernButton(btn_PW_Visibility);
+            UIHelper.StyleModernButton(btn_EMAIL_Visibility);
+            UIHelper.StyleModernButton(btn_TEL_Visibility);
+            UIHelper.StyleModernButton(btn_OTHER_Visibility);
+
+            
+        }
+
+        private void PSWManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            config.DarkModeChanged -= StylePSWManager;
         }
 
         private void StyleDataGridView(DataGridView dgv)
@@ -384,6 +439,7 @@ namespace PCessentials.Forms
 
         private void PSWManager_Load(object sender, EventArgs e)
         {
+            StylePSWManager();
             //this.Text = manager.getPath();
         }
 
@@ -431,6 +487,11 @@ namespace PCessentials.Forms
                     }
                 }
             }
+        }
+
+        private void pnl_EntrySettings_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
