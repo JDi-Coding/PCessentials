@@ -54,9 +54,12 @@ namespace DownloadCleanerV2.assets
         {
             foreach (string Folder in Folders)
             {
-                bool exists = System.IO.Directory.Exists(path + Folder);
+                string _path = path + "\\" + Folder + "\\";
+                bool exists = System.IO.Directory.Exists(_path);
                 if (!exists)
-                { System.IO.Directory.CreateDirectory(path + Folder); }                   
+                {
+                    System.IO.Directory.CreateDirectory(_path);
+                }                   
             }
         }
 
